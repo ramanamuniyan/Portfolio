@@ -1,6 +1,6 @@
 /* ---------- Theme variables (only using your 4 colors) ---------- */
 :root {
-  --bg: #D2C1B6;                    /* soft warm base */
+  --bg: #456882;                    /* soft warm base */
   --muted-bg: rgba(210,193,182,0.12); /* subtle page wash from D2C1B6 */
 
   --accent: #456882;                /* primary accent */
@@ -98,7 +98,7 @@ header{
   gap:20px;
   padding:14px;
   border-radius:12px;
-  background: var(--panel-subtle);
+  background: url("pics/1.jpg") center/cover no-repeat; ;
   border: 1px solid var(--edge-border);
 }
 
@@ -106,7 +106,7 @@ header{
 
 /* Cover image inside header brand block */
 .brand {
-  background: url("1.jpg") center/cover no-repeat;  /* your image */
+  /*background: url("pics/1.jpg") center/cover no-repeat;  /* your image */
   padding: 20px;
   border-radius: 14px;
   position: relative;
@@ -118,7 +118,7 @@ header{
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(27,60,83,0.18);   /* overlay from deep navy for contrast */
+  /*background: rgba(27,60,83,0.18);   /* overlay from deep navy for contrast */
   z-index: 1;
 }
 
@@ -264,7 +264,7 @@ div.card{
 .project, div.project{
   padding:14px;
   border-radius:12px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+  background: linear-gradient(180deg, rgba(255,255,255,0.9),rgba(210,193,182,0.92));
   box-shadow:var(--shadow);
   border:1px solid rgba(27,60,83,0.03);
   transition:0.25s, box-shadow 0.25s;
