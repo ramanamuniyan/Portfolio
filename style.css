@@ -1,428 +1,492 @@
-/* ---------- Theme variables (only using your 4 colors) ---------- */
+/* ---------- Modern Dark Glassmorphism Theme ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 :root {
-  --bg: #456882;                    /* soft warm base */
-  --muted-bg: rgba(210,193,182,0.12); /* subtle page wash from D2C1B6 */
+  /* Core Palette */
+  --bg-dark: #0f172a;
+  --bg-card: rgba(30, 41, 59, 0.7);
+  --bg-glass: rgba(255, 255, 255, 0.03);
 
-  --accent: #456882;                /* primary accent */
-  --accent-2: #234C6A;              /* deeper accent */
+  /* Accents */
+  --primary: #38bdf8;
+  /* Sky Blue */
+  --secondary: #818cf8;
+  /* Indigo */
+  --accent: #22d3ee;
+  /* Cyan */
+  --glow: rgba(56, 189, 248, 0.5);
 
-  --text: #1B3C53;                  /* deep navy for text & strong accents */
-  --muted: #456882;                 /* muted text (from palette) */
+  /* Text */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
 
-  --card: #D2C1B6;                  /* card base (same as bg tone) */
-
-  --glass: rgba(69,104,130,0.10);   /* glass tints from accent */
-  --glass-2: rgba(69,104,130,0.05);
-
-  --panel-grad: linear-gradient(180deg, rgba(210,193,182,0.72), rgba(210,193,182,0.92));
-  --panel-subtle: linear-gradient(180deg, rgba(69,104,130,0.03), rgba(35,76,106,0.02));
-
-  --radius: 12px;
-  --shadow: 0 8px 20px rgba(27,60,83,0.12);
-  --edge-border: rgba(27,60,83,0.10);
+  /* Borders & Effects */
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --backdrop: blur(12px);
+  --radius: 24px;
+  --radius-sm: 12px;
 }
 
-/* Base layout */
-html,body{
-  margin:0;
-  font-family:Inter,system-ui,Arial;
-  background:var(--muted-bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  position:relative;
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* --- background DIV (keep this div as the first child of <body>) --- */
-.bg-image {
-  position: fixed;
-  inset: 0;                   /* top:0; right:0; bottom:0; left:0; */
-  z-index: -3;                /* put it behind everything else */
-  background-image: url("https://picsum.photos/1600/900"); /* temporary test image */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(6px);          /* blur image only */
-  opacity: 0.65;              /* intensity control */
-  pointer-events: none;
-  transform: translateZ(0);
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08), transparent 25%);
 }
 
-/* --- tech SVG pattern layer (above the image, behind content) --- */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  mix-blend-mode:overlay;
-  opacity:0.85;
-  z-index: -2;                /* sits above .bg-image but behind content */
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g fill='none' stroke='%23456882' stroke-width='1' opacity='0.12'><path d='M6 20h40v20h40'/><path d='M100 6v40h20v40'/><circle cx='6' cy='20' r='3' fill='%23456882' opacity='0.18'/></g></svg>");
-  background-repeat:repeat;
-  background-size:200px 200px;
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
 }
 
-/* --- glow overlay (on top of the pattern but behind content) --- */
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index: -1;                /* sits above the pattern but behind content */
-  background: radial-gradient(circle at 10% 10%, rgba(69,104,130,0.06), transparent 10%),
-              radial-gradient(circle at 90% 80%, rgba(35,76,106,0.04), transparent 20%);
-  mix-blend-mode:soft-light;
-  animation:slowShift 12s linear infinite;
+p {
+  line-height: 1.6;
+  color: var(--text-muted);
 }
 
-@keyframes slowShift{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(6px)}
-  100%{transform:translateY(0)}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
 }
 
-/* Main layout */
-.wrap{
-  max-width:1100px;
-  margin:36px auto;
-  padding:28px;
-  border-radius:18px;
-  background: var(--panel-grad);
-  box-shadow: 0 18px 60px rgba(25,32,42,0.06);
-  border: 1px solid var(--edge-border);
+code,
+pre,
+.mono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:14px;
-  border-radius:12px;
-  background: url("pics/1.jpg") center/cover no-repeat; ;
-  border: 1px solid var(--edge-border);
+/* Layout: Bento Grid Wrapper */
+.bento-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.brand{display:flex;align-items:center;gap:16px}
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  /* Allow auto rows for flexibility */
+  gap: 1.5rem;
+  width: 100%;
+}
 
-/* Cover image inside header brand block */
-.brand {
-  /*background: url("pics/1.jpg") center/cover no-repeat;  /* your image */
-  padding: 20px;
-  border-radius: 14px;
+/* Card Component */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: var(--backdrop);
+  -webkit-backdrop-filter: var(--backdrop);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius);
+  padding: 2rem;
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: var(--shadow-glass);
 }
 
-/* Add a soft dark overlay for readability */
-.brand::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /*background: rgba(27,60,83,0.18);   /* overlay from deep navy for contrast */
-  z-index: 1;
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
 }
 
-.brand * {
+/* --- Specific Grid Areas --- */
+
+/* 1. Profile / Hero (Top Left - Large) */
+.area-profile {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+}
+
+.profile-content {
+  z-index: 2;
+}
+
+.avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  padding: 4px;
+  margin-bottom: 1.5rem;
   position: relative;
-  z-index: 2; /* keeps avatar + text above overlay */
 }
 
-.avatar{width:300px;height:300px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.avatar img{width:100%;height:100%;object-fit:cover}
-
-.name h1{margin:0;font-size:20px;font-weight:700;color:var(--text)}
-.name p{margin:4px 1px 1px;color:var(--muted)}
-
-.header-cta{display:flex;gap:10px}
-.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
-.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
-.btn.ghost{background:transparent;border:1px solid rgba(27,60,83,0.12); color:var(--text)}
-
-nav{
-  margin-top:18px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
-  padding:18px;
-  border-radius:14px;
-  box-shadow:var(--shadow);
-  border:1px solid var(--edge-border);
+.avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-/* --- Paragraph improvements (bigger + more spaced) --- */
-p {
-  font-size: 17px;           /* increase text size */
-  line-height: 1.65;         /* increase line spacing */
-  margin-bottom: 14px;       /* increase paragraph gap */
-  color: var(--text);
+.status-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #10b981;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--bg-dark);
 }
 
-/* About-section paragraphs even larger + more gap */
-#about p {
-  font-size: 18px;
-  line-height: 1.72;
-  margin-bottom: 26px; /* larger gap between paragraphs */
-  font-size: 18px;
-  line-height: 1.72;
-  margin-bottom: 18px;
-}
-
-nav button{
-  background:transparent;
-  border:1px solid transparent;
-  color:var(--muted);
-  padding:10px 18px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:600;
-  transition:0.18s;
-}
-
-nav button:hover{
-  background: rgba(69,104,130,0.08);
-  transform:translateY(-2px);
-  color: var(--text);
-}
-
-nav button.active{
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  color:white;
-}
-
-.grid{
-  align-items: flex-start; /* prevent sidebar from stretching with about card */
-  display:grid;
-  grid-template-columns:1fr 320px;
-  gap:28px;
-  margin-top:20px;
-  padding:16px;
-  border-radius:14px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(246,248,250,0.35));
-  border:1px solid rgba(25,32,42,0.02);
-}
-
-/* card base uses only the palette */
-.card{
-  background: var(--card); /* uses theme card color */
-  padding:22px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  border: 1px solid var(--edge-border);
-  color: var(--text);
-}
-
-/* More specific selector as requested: div.card */
-div.card{
-  /* subtle elevation and tinted surface */
-  background: linear-gradient(180deg, rgba(210,193,182,0.06), rgba(210,193,182,0.02));
-  border: 1px solid rgba(27,60,83,0.06);
-  box-shadow: 0 8px 22px rgba(27,60,83,0.06);
-}
-
-.muted{color:var(--muted)}
-
-/* Skills container (if you have #skills.card specifically targeted) */
-#skills.card{
-  background: linear-gradient(180deg, rgba(69,104,130,0.03), rgba(35,76,106,0.01));
-  border: 1px solid rgba(27,60,83,0.06);
-  padding: 18px;
-  color: var(--text);
-}
-
-/* Skills tags */
-.skills{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  padding:8px;
-  border-radius:10px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.2));
-  border: 1px solid rgba(69,104,130,0.04);
-}
-
-/* skill badges use only the accents */
-.skill{
-  padding:8px 12px;
-  border-radius:10px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
-  color: white;
-  font-weight:700;
-  border: 1px solid rgba(27,60,83,0.06);
-  box-shadow: inset 0 -2px 6px rgba(0,0,0,0.02);
-}
-
-/* Projects */
-.projects{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  padding:4px;
-  border-radius:10px;
-}
-
-.project, div.project{
-  padding:14px;
-  border-radius:12px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.9),rgba(210,193,182,0.92));
-  box-shadow:var(--shadow);
-  border:1px solid rgba(27,60,83,0.03);
-  transition:0.25s, box-shadow 0.25s;
-}
-.project:hover{transform:translateY(-6px)}
-
-.project a{
-  display:inline-block;
-  margin-top:10px;
-  padding:8px 12px;
-  border-radius:10px;
-  color:var(--accent);
-  border:1px solid rgba(27,60,83,0.06);
-  text-decoration:none;
-}
-.project a:hover{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
-
-/* Sidebar - colored using the palette as requested */
-aside.sidebar {
-  background: linear-gradient(180deg, rgba(210,193,182,0.06), rgba(210,193,182,0.02));
-  padding: 18px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(27,60,83,0.06);
-  box-shadow: var(--shadow);
-}
-
-aside.sidebar .card{
-  background: var(--card);
-  border: 1px solid rgba(27,60,83,0.06);
-  box-shadow: var(--shadow);
-}
-
-/* Contact section */
-.contact-block {
-  display: grid;
-  gap: 16px;
-}
-
-.contact-row {
+.role-text {
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0.5rem;
 }
 
-.icon-circle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.area-profile h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.social-links {
   display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-glass);
+}
+
+.social-btn:hover {
+  background: var(--primary);
+  color: var(--bg-dark);
+}
+
+/* 2. Education (Top Right - Small) */
+.area-education {
+  grid-column: span 1;
+  grid-row: span 1;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(30, 41, 59, 0.7));
+  /* Emerald tint */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
-  transition: transform 220ms cubic-bezier(.2,.9,.2,1),
-              box-shadow 220ms cubic-bezier(.2,.9,.2,1);
+  text-align: center;
 }
 
-.icon { width:22px;height:22px;fill:#fff; }
-
-/* Contact colors toned to your theme (keeps recognizability but matched to palette) */
-.phone-bg    { background-color: var(--accent-2); box-shadow:0 2px 6px rgba(35,76,106,0.10); }
-.email-bg    { background-color: var(--accent);   box-shadow:0 2px 6px rgba(69,104,130,0.08); }
-.github-bg   { background-color: var(--text);     box-shadow:0 2px 6px rgba(27,60,83,0.08); }
-.linkedin-bg { background: linear-gradient(90deg,var(--accent),var(--accent-2)); box-shadow:0 2px 6px rgba(69,104,130,0.08); }
-
-.contact-row:hover .icon-circle,
-.contact-row:focus-within .icon-circle {
-  transform: translateY(-4px) scale(1.08);
-}
-
-.contact-row a{
-  font-weight:600;
-  color:var(--text);
-  text-decoration:none;
-}
-
-.contact-row a:hover{
-  text-decoration:underline;
-}
-
-@media(max-width:900px){
-  .grid{grid-template-columns:1fr}
-  .header-cta{display:none}
-}
-
-/* --- Larger text + more spacing for strengths, experience, projects --- */
-
-#about h3 {
-  margin-top: 40px; /* stronger separation */
-  font-size: 22px;       /* larger heading */
-  margin-top: 26px;
-  margin-bottom: 14px;
+.education-degree {
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: 0.3px;
+  color: #10b981;
+  /* Emerald 500 */
+  margin-bottom: 0.25rem;
 }
 
-#about ul li {
-  font-size: 18px;        /* increase size */
-  line-height: 1.78;      /* more readable */
-  margin-bottom: 14px;    /* more gap between points */
-  color: var(--text);
+.education-field {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
-#about ul {
-  padding-left: 22px;
-  margin-bottom: 32px; /* more spacing between blocks */
-  padding-left: 22px;     /* increase indent */
-  margin-bottom: 20px;    /* gap after each list block */
+/* 3. Resume / CV (Top Right - Small) */
+.area-resume {
+  grid-column: span 1;
+  grid-row: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(30, 41, 59, 0.7));
 }
 
-#about ul li strong,
-#about ul li a {
-  font-size: 18px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-#about ul li a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-/* Slightly increase skill badges for balance */
-#about .skills .skill {
-  font-size: 16px;
-  padding: 10px 16px;
+.resume-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--bg-glass);
   border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
 }
 
-/* hero styles removed */
-
-#about.card {
-  padding: 28px;
-  border-radius: calc(var(--radius) + 6px);
-  background: linear-gradient(180deg, rgba(210,193,182,0.12), rgba(69,104,130,0.02));
-  color: var(--text);
-  border: 1px solid rgba(27,60,83,0.06);
-  box-shadow: 0 6px 18px rgba(27,60,83,0.08);
+.download-btn {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
 }
 
-/* small utility helpers */
-.center{display:flex;align-items:center;justify-content:center}
+/* 4. Skills (Middle Right - Wide) */
+.area-skills {
+  grid-column: span 2;
+  grid-row: span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-/* spacing improvements */
-#about .about-text h2 { margin-bottom: 18px; }
-#about .skills { margin-top: 22px; margin-bottom: 26px; }
-#about h3 { margin-top: 32px; }
-#about ul { margin-bottom: 26px; }
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
 
-/* sidebar gaps */
-aside.sidebar .card { margin-bottom: 26px; }
+.skill-tag {
+  padding: 0.5rem 1rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
 
-/* separate short summary visually */
-#about .muted:first-of-type {
-  padding: 18px;
-  background: rgba(27,60,83,0.05);
-  border-left: 4px solid var(--accent);
+.skill-tag:hover {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* 5. Projects (Bottom Row - Large) */
+.area-projects {
+  grid-column: span 2;
+  grid-row: span 2;
+  overflow-y: auto;
+  /* Allow internal scroll if needed */
+}
+
+.project-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-glass);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.project-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-glass);
+}
+
+.project-icon {
+  min-width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.project-info h4 {
+  margin-bottom: 0.25rem;
+}
+
+.project-info p {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-link {
+  font-size: 0.75rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* 6. About / Bio (Bottom Left - Wide) */
+.area-about {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* 7. Contact (Bottom Right - Small) */
+.area-contact {
+  grid-column: span 2;
+  grid-row: span 1;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(30, 41, 59, 0.7));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-btn {
+  background: var(--text-main);
+  color: var(--bg-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.contact-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .area-profile {
+    grid-column: span 2;
+  }
+
+  .area-map {
+    grid-column: span 1;
+  }
+
+  .area-resume {
+    grid-column: span 1;
+  }
+
+  .area-skills {
+    grid-column: span 2;
+  }
+
+  .area-projects {
+    grid-column: span 2;
+  }
+
+  .area-about {
+    grid-column: span 2;
+  }
+
+  .area-contact {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .bento-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .area-profile h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* 8. Awards (New Section) */
+.area-awards {
+  grid-column: span 2;
+  grid-row: span 1;
+  background: var(--bg-card);
+  /* Match standard card background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.award-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.award-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-glass);
+  transition: transform 0.2s;
+}
+
+.award-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.award-icon {
+  width: 100%;
+  height: 200px;
+  /* Fixed height for uniformity */
   border-radius: 8px;
-  margin-bottom: 24px;
+  object-fit: cover;
+  /* Cover to fill the area nicely */
+  object-position: top;
+  /* Focus on top of certificate */
+  background: rgba(0, 0, 0, 0.2);
 }
 
-/* end of CSS */
+@media (max-width: 768px) {
+  .award-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.award-details h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+  color: #facc15;
+  /* Yellow 400 */
+}
+
+.award-details p {
+  font-size: 0.75rem;
+  margin: 0;
+}

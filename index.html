@@ -1,273 +1,199 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ramana M — Professional Portfolio</title>
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramana M | Embedded Systems Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
 
-  <div class="wrap">
-    <!-- HEADER -->
-    <header >
-      <div class="brand">
-        <div class="avatar">
-          <img src="pics/2.jpg" alt="Ramana"/>
-        </div>
-        <div class="name">
-          <h1 style="color: #18354a;">Ramana M</h1>
-          <h3 style="color: #40596c;" class="muted">B.E — Electronics & Communication Engineering (ECE)</h3>
+  <div class="bento-wrapper">
+    <div class="bento-grid">
+
+      <!-- 1. Profile / Hero -->
+      <div class="card area-profile">
+        <div class="profile-content">
+          <div class="avatar-wrapper">
+            <img src="pics/professional.png" alt="Ramana M" />
+            <div class="status-badge"></div>
+          </div>
+          <div class="role-text">
+            <i data-feather="cpu" width="18"></i>
+            <span id="typing-text">Embedded Engineer</span><span class="typing-cursor"></span>
+          </div>
+          <h1>Ramana M</h1>
+          <p>Building robust firmware & hardware solutions. <br>Specialized in IoT, RTOS, and Low-level Debugging.</p>
+
+          <div class="social-links">
+            <a href="https://github.com/ramanamuniyan/" target="_blank" class="social-btn" aria-label="GitHub">
+              <i data-feather="github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ramanamuniyan/" target="_blank" class="social-btn"
+              aria-label="LinkedIn">
+              <i data-feather="linkedin"></i>
+            </a>
+            <a href="mailto:ramanamuniyan@proton.me" class="social-btn" aria-label="Email">
+              <i data-feather="mail"></i>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div class="header-cta">
-        <a class="btn primary" href="ramana_resume.pdf" id="cvBtn">Download CV</a>
-        <button class="btn ghost" id="contactTop">Contact</button>
+      <!-- 2. Education (Replaced Map) -->
+      <div class="card area-education">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <h4>Adv. Embedded Systems</h4>
+          <p>Emertxe Information Technologies</p>
+          <span class="year">Present</span>
+        </div>
+        <div class="edu-item" style="margin-top: 1rem;">
+          <h4>B.E. Electronics & Comm.</h4>
+          <p>Kongu Engineering College</p>
+          <span class="year">2021 - 2025</span>
+        </div>
       </div>
-    </header>
 
-    <!-- NAV -->
-    <nav>
-      <button class="active" data-sec="about">About</button>
-      <button data-sec="skills">Skills</button>
-      <button data-sec="projects">Projects</button>
-      <button data-sec="contact">Contact</button>
-    </nav>
+      <!-- 3. Resume -->
+      <a href="ramana_resume.pdf" target="_blank" class="card area-resume">
+        <div class="resume-icon">
+          <i data-feather="file-text"></i>
+        </div>
+        <div class="download-btn">
+          <span>Download CV</span>
+          <i data-feather="arrow-up-right"></i>
+        </div>
+      </a>
 
-    <div class="grid">
-      <main>
+      <!-- 6. About (Moved Up) -->
+      <div class="card area-about">
+        <h3>My Journey</h3>
+        <p style="margin-top: 1rem;">
+          My fascination with technology isn't just about writing code; it's about bridging the gap between hardware and
+          software.
+          As an <strong>Electronics & Communication Engineering</strong> graduate, I dove deep into the world of
+          <strong>Embedded Systems</strong> through an intensive
+          Advanced Course at <a href="http://www.emertxe.com" target="_blank" style="color:var(--primary)">Emertxe</a>.
+        </p>
+        <p style="margin-top: 0.5rem;">
+          I love the challenge of working "close to the metal"—whether it's architecting efficient firmware for
+          microcontrollers,
+          debugging complex PCBs, or building IoT solutions that solve real-world problems. My goal is simple: to build
+          reliable,
+          useful systems that make a difference.
+        </p>
+      </div>
 
-        <!-- ABOUT (single, fixed) -->
-        <section id="about" class="card">
-          <div class="hero">
+      <!-- 4. Skills (Moved Down) -->
+      <div class="card area-skills">
+        <h3>Tech Stack</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">C / C++</span>
+          <span class="skill-tag">Embedded C</span>
+          <span class="skill-tag">RTOS</span>
+          <span class="skill-tag">ESP32</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">UART/SPI/I2C</span>
+          <span class="skill-tag">PCB Debug</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Data Structures</span>
+        </div>
+      </div>
 
+      <!-- 5. Projects -->
+      <div class="card area-projects">
+        <h3>Featured Projects</h3>
+        <br>
 
-            <!-- RIGHT SIDE — About content -->
-            <div class="about-text">
-
-              <h2>About</h2>
-
-              <p class="muted">
-                I am <strong>Ramana M</strong>, an Electronics and Communication Engineering graduate with a strong focus on
-                <strong>embedded systems, firmware development, and hardware-level problem solving</strong>.
-                I build IoT devices and robust hardware solutions by writing clean firmware, performing pragmatic debugging,
-                and delivering reliable prototypes.
-              </p>
-
-              <p>
-                I enjoy working close to the metal — reading datasheets, architecting MCU firmware, debugging PCBs, and creating
-                supporting host tools. I value simplicity, reliability, and low-level understanding of how hardware and software interact.
-              </p>
-
-              <div class="skills" aria-hidden>
-                <div class="skill">Advance C</div>
-                <div class="skill">C++</div>
-                <div class="skill">DataStructure</div>
-                <div class="skill">ESP32</div>
-                <div class="skill">UART / SPI / I2C</div>
-               
-                <div class="skill">Linux</div>
-                <div class="skill">Git</div>
-              </div>
-
-              <h3 style="margin-top:18px">Short strengths summary</h3>
-              <ul>
-                <li>Strong in <strong>C</strong>, C++, Data Structures, algorithmic thinking</li>
-                <li>Firmware development, drivers, ISRs, RTOS basics</li>
-                <li>Embedded debugging with oscilloscope, logic analyzer</li>
-                <li>Linux system knowledge and CLI tools</li>
-                <li>Turning ideas into working prototypes quickly</li>
-              </ul>
-
-              <h3 style="margin-top:14px">Experience highlights</h3>
-              <ul>
-                <li>Developed firmware for ESP32, AVR, ARM Cortex MCUs</li>
-                <li>Worked on PCB debugging, schematic and layout reviewing</li>
-                <li>Developed sensor interfaces, serial drivers, power management</li>
-                <li>Created host-side tools and automation scripts</li>
-              </ul>
-
-              <h3 style="margin-top:14px">Selected projects</h3>
-              <ul>
-                <li>
-                  <strong><a href="https://github.com/ramanamuniyan/Inverted-Search-using-hashtable" target="_blank">Inverted-Search-using-hashtable</a></strong>
-                  — Hash table based inverted index system.
-                </li>
-
-                <li>
-                  <strong><a href="https://github.com/ramanamuniyan/Arbitrary-Precision-Calculator" target="_blank">Arbitrary-Precision-Calculator</a></strong>
-                  — Big integer math using doubly-linked lists.
-                </li>
-
-                <li>
-                  <strong><a href="https://github.com/ramanamuniyan/Stegnograph" target="_blank">Image Steganography (LSB)</a></strong>
-                  — Hide/extract messages using LSB encoding.
-                </li>
-              </ul>
-
-              <h3 style="margin-top:14px">Tools & tech</h3>
-              <p class="muted">GNU toolchain, PlatformIO, VS Code, GDB, OpenOCD, JTAG, KiCad, Oscilloscope, Logic Analyzer, Git.</p>
-
-              <h3 style="margin-top:14px">Education</h3>
-              <p class="muted">B.E — Electronics & Communication Engineering (ECE)</p>
-
-              <h3 style="margin-top:14px">Career objective</h3>
-              <p>
-                Seeking embedded system projects where I can contribute firmware, hardware testing, and build reliable IoT solutions.
-              </p>
-
-            </div> <!-- about-text -->
-
-          </div> <!-- hero -->
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="card" style="display:none">
-          <h2>Skills</h2>
-          <ul>
-            
-            <h3><li>Advanced C</li></h3>
-             <h3><li>C++</li></h3>
-             <h3><li>Data Structures</li></h3>
-            <h3> <li>Linux</li></h3>
-             <h3><li>FreeRTOS</li></h3>
-             <h3><li>ESP32</li></h3>
-              <h3><li>PIC18F4580</li></h3>
-            <h3><li>UART / SPI / I2C</li></h3> 
-            <h3> <li>PCB Debug</li></h3>
-             <h3><li>Git</li></h3>
-          </ul>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects" class="card" style="display:none">
-          <h2>Projects</h2>
-
-          <div class="projects">
-
-            <div class="project">
-              <h3>Inverted-Search-using-hashtable</h3>
-              <p>Efficient text search system using hash tables and linked lists.</p>
-              <a href="https://github.com/ramanamuniyan/Inverted-Search-using-hashtable">View Repo</a>
-            </div>
-
-            <div class="project">
-              <h3>Arbitrary-Precision-Calculator</h3>
-              <p>Big integer calculator using doubly linked lists that supports +, -, *, %, /.</p>
-              <a href="https://github.com/ramanamuniyan/Arbitrary-Precision-Calculator">View Repo</a>
-            </div>
-
-            <div class="project">
-              <h3>Image Steganography using LSB</h3>
-              <p>Hide/extract text inside images using Least Significant Bit encoding.</p>
-              <a href="https://github.com/ramanamuniyan/Stegnograph">View Repo</a>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="card" style="display:none">
-          <h2>Contact</h2>
-
-          <div class="contact-block">
-
-            <div class="contact-row">
-              <div class="icon-circle phone-bg">
-                <svg viewBox="0 0 24 24" class="icon">
-                  <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.29 21 3 13.71 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="muted">Phone</p>
-                <p><a href="tel:+918939611653">+91 89396 11653</a></p>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <div class="icon-circle email-bg">
-                <svg viewBox="0 0 24 24" class="icon">
-                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="muted">Email</p>
-                <p><a href="mailto:ramanamuniyan@proton.me">ramanamuniyan@proton.me</a></p>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <div class="icon-circle github-bg">
-                <svg viewBox="0 0 24 24" class="icon">
-                  <path d="M12 .5A12 12 0 000 12.5a12 12 0 008.21 11.44c.6.11.82-.26.82-.58v-2c-3.34.73-4-1.61-4-1.61a3.15 3.15 0 00-1.34-1.76c-1.1-.75.08-.74.08-.74a2.5 2.5 0 011.82 1.22 2.55 2.55 0 003.47 1 2.57 2.57 0 01.76-1.61c-2.67-.31-5.47-1.36-5.47-6a4.64 4.64 0 011.22-3.23 4.3 4.3 0 01.12-3.18s1-.33 3.3 1.23a11.43 11.43 0 016 0c2.3-1.56 3.3-1.23 3.3-1.23a4.3 4.3 0 01.12 3.18A4.64 4.64 0 0119 12.5c0 4.66-2.8 5.68-5.48 6a2.91 2.91 0 01.82 2.29v3.4c0 .32.2.7.82.58A12 12 0 0024 12.5 12 12 0 0012 .5z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="muted">Github</p>
-                <p><a href="https://github.com/ramanamuniyan/">github.com/ramanamuniyan</a></p>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <div class="icon-circle linkedin-bg">
-                <svg viewBox="0 0 24 24" class="icon">
-                  <path d="M4.98 3.5a2.5 2.5 0 11.02 0zM3 8.5h4v12H3zM9 8.5h3.8v1.6h.1c.5-.9 1.9-1.8 3.9-1.8 4.2 0 5 2.8 5 6.4V20h-4v-5.1c0-1.2 0-2.8-1.7-2.8-1.7 0-1.9 1.3-1.9 2.7V20H9z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="muted">LinkedIn</p>
-                <p><a href="https://www.linkedin.com/in/ramanamuniyan/" target="_blank">linkedin.com/in/ramanamuniyan</a></p>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-      </main>
-
-      <!-- SIDEBAR -->
-      <aside class="sidebar">
-        <div class="card">
-          <h4>Quick Info</h4>
-          <div class="meta">
-           
-            <div class="info-row"><span class="muted"><pre>Degree    </pre></span><strong>B.E — ECE</strong></div>
-            <div class="info-row"><span class="muted"><pre>Location  </pre>  </span><strong>India</strong></div>
-            <div class="info-row"><span class="muted"><pre>Status    </pre> </span><strong>Open to projects</strong></div>
-
-           
+        <div class="project-item">
+          <div class="project-icon">IoT</div>
+          <div class="project-info">
+            <h4>Smart Ironing Automation</h4>
+            <p>Built an energy-saving system using <strong>ESP32 & PIR Sensors</strong> that automates power based on
+              human presence.</p>
+            <span class="project-link">IoT / Embedded</span>
           </div>
         </div>
 
-        <div class="card">
-          <h4>Skills Snapshot</h4>
-          <div class="skills" aria-hidden>
-            <div class="skill">Advanced C</div>
-            <div class="skill">Data Structure</div>
-            <div class="skill">C++</div>
-            <div class="skill">Linux</div>
-            <div class="skill">PIC18F4580</div>
+        <div class="project-item">
+          <div class="project-icon">IS</div>
+          <div class="project-info">
+            <h4>Inverted Search Engine</h4>
+            <p>Created a lightning-fast text search system using <strong>Hash Tables</strong> to index and retrieve
+              words across multiple files.</p>
+            <a href="https://github.com/ramanamuniyan/Inverted-Search-using-hashtable" target="_blank"
+              class="project-link">View Code &rarr;</a>
           </div>
         </div>
 
-        <div class="card">
-          <h4>Highlights</h4>
-          <ul>
-            <li>Hands-on prototyping</li>
-            <li>Low-level debugging</li>
-            <li>End-to-end IoT stack</li>
-          </ul>
+        <div class="project-item">
+          <div class="project-icon">AP</div>
+          <div class="project-info">
+            <h4>Arbitrary Precision Calc</h4>
+            <p>Solved the limitation of standard data types by building a calculator that handles <strong>infinite-digit
+                numbers</strong> using Linked Lists.</p>
+            <a href="https://github.com/ramanamuniyan/Arbitrary-Precision-Calculator" target="_blank"
+              class="project-link">View Code &rarr;</a>
+          </div>
         </div>
-      </aside>
+
+        <div class="project-item">
+          <div class="project-icon">MP3</div>
+          <div class="project-info">
+            <h4>MP3 Tag Reader</h4>
+            <p>Engineered a tool to parse and edit <strong>ID3v2 metadata</strong> (Artist, Title, Album) directly from
+              binary MP3 files.</p>
+            <span class="project-link">C / File Handling</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 8. Awards -->
+      <div class="card area-awards">
+        <h3>Spot Awards</h3>
+        <div class="award-list">
+          <div class="award-item">
+            <img src="pics/spot_award.png" alt="Spot Award" class="award-icon" />
+            <div class="award-details">
+              <h4>Emertxe Spot Award</h4>
+              <p>Received the Student Spot Award from Emertxe for presenting a smart and efficient solution to an
+                in-class problem! Moments like this fuel my drive to push boundaries and keep sharpening my skills in
+                Embedded Systems and low-level programming.</p>
+            </div>
+          </div>
+          <div class="award-item">
+            <img src="pics/spot_award_2.png" alt="Spot Award" class="award-icon" />
+            <div class="award-details">
+              <h4>Emertxe Spot Award</h4>
+              <p>Recognized for showing a lot of enthusiasm and inclination towards learning Data Structures module.
+                This goes a long way in building a solid career in core industry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Contact -->
+      <div class="card area-contact">
+        <div>
+          <h3>Let's Work Together</h3>
+          <p>Have a project in mind?</p>
+        </div>
+        <a href="mailto:ramanamuniyan@proton.me" class="contact-btn">Get in Touch</a>
+      </div>
+
     </div>
-
   </div>
 
   <script src="script.js"></script>
-
+  <script>
+    feather.replace();
+  </script>
 </body>
+
 </html>

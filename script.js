@@ -1,30 +1,46 @@
-// Tab switching
-const tabs = document.querySelectorAll("nav button");
-const sections = document.querySelectorAll("main section");
+// Typing Effect for Hero Section
+const textElement = document.getElementById('typing-text');
+const texts = ['Embedded Engineer', 'Firmware Developer', 'IoT Enthusiast', 'RTOS Specialist', 'PCB Designer'];
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
 
-tabs.forEach(btn => {
-  btn.addEventListener("click", () => {
-    // Switch active class
-    tabs.forEach(x => x.classList.remove("active"));
-    btn.classList.add("active");
+(function type() {
+  if (count === texts.length) {
+    count = 0;
+  }
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
 
-    // Show correct section
-    const id = btn.dataset.sec;
-    sections.forEach(s => {
-      s.style.display = (s.id === id) ? "block" : "none";
-    });
+  textElement.textContent = letter;
+  if (letter.length === currentText.length) {
+    count++;
+    index = 0;
+    setTimeout(type, 2000); // Wait before starting next word
+  } else {
+    setTimeout(type, 100); // Typing speed
+  }
+})();
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+// Add smooth reveal animation on scroll (optional for Bento but nice to have)
+const observerOptions = {
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
   });
-});
+}, observerOptions);
 
-// Contact button at top
-document.getElementById("contactTop").addEventListener("click", () => {
-  document.querySelector('nav button[data-sec="contact"]').click();
+document.querySelectorAll('.card').forEach((card) => {
+  // Set initial state for animation
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(20px)';
+  card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+  observer.observe(card);
 });
-
-// CV Download (anchor tag)
-document.getElementById("cvBtn").addEventListener("click", (e) => {
-  // Allow anchor to directly download
-});
-
