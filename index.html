@@ -134,6 +134,8 @@
               and word counts for fast and efficient searching across multiple documents.</p>
             <a href="https://github.com/ramanamuniyan/Inverted-Search-using-hashtable" target="_blank"
               class="project-link">View Code &rarr;</a>
+            <a href="#" onclick="openVideo(event, 'videos/Heap-Search.webm')" class="project-link"
+              style="margin-left: 10px;">Watch Demo &rarr;</a>
           </div>
         </div>
 
@@ -169,6 +171,8 @@
                 Bits</strong> of a BMP image. Includes magic string verification for secure decoding.</p>
             <a href="https://github.com/ramanamuniyan/Stegnograph" target="_blank" class="project-link">View Code
               &rarr;</a>
+            <a href="#" onclick="openVideo(event, 'videos/sample-output.webm')" class="project-link"
+              style="margin-left: 10px;">Watch Demo &rarr;</a>
           </div>
         </div>
 
@@ -207,6 +211,19 @@
         <a href="mailto:ramanamuniyan@proton.me" class="contact-btn">Get in Touch</a>
       </div>
 
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="video-modal" onclick="closeVideo()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeVideo()">&times;</span>
+      <div class="video-container">
+        <video id="video-frame" controls width="100%"
+          style="position: absolute; top: 0; left: 0; height: 100%; object-fit: contain;">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   </div>
 

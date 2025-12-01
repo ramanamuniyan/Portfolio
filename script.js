@@ -44,3 +44,39 @@ document.querySelectorAll('.card').forEach((card) => {
   card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
   observer.observe(card);
 });
+
+// Video Modal Logic
+function openVideo(event, url) {
+  event.preventDefault();
+  const modal = document.getElementById('video-modal');
+  const video = document.getElementById('video-frame');
+
+  video.src = url;
+  modal.style.display = 'flex';
+  // Force reflow to enable transition
+  void modal.offsetWidth;
+  modal.classList.add('show');
+
+  // Attempt to play automatically
+  video.play().catch(e => console.log("Autoplay prevented:", e));
+}
+
+function closeVideo() {
+  const modal = document.getElementById('video-modal');
+  const video = document.getElementById('video-frame');
+
+  modal.classList.remove('show');
+  setTimeout(() => {
+    modal.style.display = 'none';
+    video.pause();
+    video.currentTime = 0;
+    video.src = ''; // Clear source
+  }, 300); // Match transition duration
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    closeVideo();
+  }
+});
