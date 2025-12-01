@@ -1,0 +1,207 @@
+                                                  RAMANA M
+
+
+                Email: ramanamuniyan26@gmail.com | Github: github.com/ramanamuniyan
+
+         LinkedIn: www.linkedin.com/in/ramanamuniyan | Phone Number: 8939611653 | KRISHNAGIRI
+
+
+
+
+             CAREER      To work in an environment where I can apply what I’ve learned in embedded
+          OBJECTIVE      programming and microcontrollers, gain practical experience, and help build
+                         useful, reliable solutions.
+
+
+
+              WORK           Currently undergoing technical training program – Advanced Embedded
+         EXPERIENCE          Systems Course at Emertxe Information Technologies
+                             (http://www.emertxe.com) Bangalore
+
+
+
+          TECHNICAL         Programming Languages:
+              SKILLS             o   Advanced C programming
+                                 o   OOP using C++
+                                 o   Data structures
+
+
+                            System programming:
+                                 o   Linux Kernel system calls
+
+
+                            Embedded controllers:
+                                 o   Hands-on working with GPIOs, Analog I/Os, Memory
+                                     usage, interfacing, character LCD
+                                 o   Peripherals usage - Timers, Counters and Interrupts
+                                 o   Communication protocols - UART, SPI, I2C etc
+
+
+                            Embedded platforms:
+                                 o   Distributions - Linux (Fedora / Ubuntu)
+                                 o   PIC (18F4520) board
+
+
+
+
+Page 1
+                           Development environment and tools:
+                                o   Dev environment: Vim, Makefiles, MPLAB
+                                o   Compilers: GCC, XC8, ARM-Linux-gcc
+                                o   Debuggers: GDB
+
+         COURSE WORK       Microprocessor
+                           Digital Electronics
+                           Digital Signal Processing
+
+
+           EDUCATION       B.E (ECE), Kongu Engineering College, KEC, 6.99%, 2021-2025
+                           Class – XII, Sri Vidya Mandir Matric Higher Secondary School, 91.31%, 2021
+                           Class – X, Sri Vidya Mandir Matric Higher Secondary School, 91.00%, 2019
+
+
+
+
+                                          PROJECTS AT EMERTXE
+
+
+
+   Project Number:1
+   Title                        Inverted Search
+   Project brief                Inverted Search is a C project where I created an inverted index from
+                                multiple text files. Each word found in the files is stored in a hash table
+                                along with the names of the files where it appears and how many times it
+                                occurs. This makes searching for any word across multiple files fast and
+                                efficient.
+
+
+   Technologies used            Advanced C - File Handling, Hash Tables, Linked Lists, and Dynamic
+                                Memory, Command line arguments
+   Key challenges & Learnings    Learned how to analyze files properly and extract words while handling
+                                  case differences and repeated words.
+                                 Used hash tables and linked lists to store data efficiently and speed up
+                                    search operations.
+                                 During Creating the Hash Table same word comes in different files, the
+                                  count of the words should be incremented and issue in fetching the
+                                  backup data resolved easily by using the file concept and and the
+                                  formate specified sscanf.
+                                 Faced segmentation faults due to incorrect handling of node
+                                  addresses, but fixed them by understanding proper NULL checks and
+
+
+Page 2
+                                   memory usage.
+
+
+
+
+   Project Number:2
+   Title                        Arbitrary Precision Calculator
+   Project brief                Arbitrary Precision Calculator is a C based project performing mathematical
+                                operations on very large numbers that cannot fit into standard data types
+                                like int or long long. To handle such numbers using linked lists, treating
+                                each digit as a separate element. Using these structure, the program can
+                                accurately perform addition, subtraction, multiplication, and division on
+                                numbers of any size without losing precision.
+
+
+   Technologies used            Advanced C – Pointers, Linked Lists, Structure, Dynamic Memory Allocation,
+                                Command line arguments
+   Key challenges & Learnings    Implemented custom arithmetic for arbitrarily large numbers without
+                                  built-in types.
+                                 Faced a struggle in the dividing part where both the subtraction and
+                                   addition part both combined to get the solutions.
+                                 Identified unused list nodes and memory that was not freed, and
+                                  resolved these issues during debugging. Cleared all unused heap
+                                  memory by using the Linux tool Valgrind..
+
+
+
+
+   Project Number:3
+   Title                        Image Steganography using LSB Encoding and Decoding
+   Project brief                The goal was to transfer data or information to the receiver without anyone
+                                else being able to read it. I stored the length of the text and then
+                                embedded each bit of the message into the least significant bits of the
+                                image data. The BMP file was encoded with a magic string to make it easy
+                                to identify. During decoding, this magic string helps the receiver confirm
+                                that the BMP file contains hidden data. Once verified, the receiver decodes
+                                the LSBs one by one and reconstructs the original message.
+   Technologies used            Embedded C – File operations, Pointers, Bitwise operations, Functions,
+                                Makefiles, Command line arguments
+   Key challenges & Learnings    Understanding of pixels and header of image file by doing literature
+                                  study
+                                 Learned how to hide data in an BMP image with unnoticeable change
+                                  in the image
+                                 Major challenge is to encoding the files with their extension and the
+                                  total size of the file, but solved them with understanding the clear
+                                  concept of bitwise and file pointer.
+
+
+
+
+Page 3
+   Project number:4
+   Title                        Mp3 Tag Reader
+   Project brief                MP3 Tag Reader is a C-based project that reads and displays metadata from
+                                MP3 audio files. The program extracts information such as the song title,
+                                artist name, album, year, genre, and comments from the ID3 tags stored
+                                inside the MP3 file. It uses file handling and byte-level parsing to locate the
+                                tag header and decode the stored fields, allowing the user to easily view
+                                the details of any MP3 file.
+   Technologies used            Advanced C – File Pointers,Structure.
+   Key challenges & Learnings    Faced a challenge while reading the tag size because the integer values
+                                  were stored in big-endian format , resolved the issue by converting
+                                  them to little-endian before processing.
+                                 Improved knowledge of string handling, pointer usage, and modular
+                                  programming while parsing different metadata fields.
+                                 Editing a tag was done by updating the tag fields inside the structure
+                                  and then overwriting the MP3 file with the new user-provided data.
+
+
+
+   Project number:5
+   Title                        Address Book
+   Project brief                The Address Book is a C application that built to store and manage contact
+                                details like name, phone number, and email. It lets the user add new
+                                contacts, search for existing ones, update details, delete entries, and view
+                                the full list. Used proper input checks and a modular design to keep the
+                                data handling clean and efficient.
+   Technologies used            Advanced C – Pointers, Structures, File Handling, Command line arguments
+   Key challenges & Learnings    Faced difficulties while adding proper input validation for names,
+                                  phone numbers, and emails, which helped me understand error
+                                  handling better.
+                                 Had challenges managing file operations and making sure data was
+                                  stored and retrieved correctly, which improved my skills in data
+                                  persistence.
+                                 Learned more about the structure and the file pointers to store and
+                                  initialize the stored content back to the sturucture.
+                                 Added an extra feature to manage separate categories like family,
+                                  friends, and colleagues, which required careful planning of data
+                                  structure and menu flow.
+
+
+
+
+Page 4
+                                          ACADEMIC PROJECTS
+
+   Title                        Automation in Vacuum Ironing Table
+   Project brief                The project focuses on automating a vacuum ironing table so that it turns
+                                ON only when a person is nearby and turns OFF automatically when not in
+                                use. A PIR sensor is used to detect human presence, and based on the
+                                sensor output, the ESP32 controls a relay circuit that powers the ironing
+                                table. This helps save electricity and prevents overheating or accidents.
+   Technologies used            Arduino IDE, ESP-32, PIR sensor, Relay
+   Key challenges & Learnings    Faced challenges in calibrating the PIR sensor to correctly detect
+                                   human presence and avoid false triggers.
+                                 Learned to interface ESP32 with relay and transistor driver circuits to
+                                   safely switch AC loads.
+                                 Improved understanding of automation, safety control, and sensor-
+                                   based switching for real-time applications.
+
+
+
+
+Page 5
+
