@@ -294,15 +294,24 @@ async function runMP3Reader() {
   const file = fileInput.files[0];
 
   if (mp3Module && mp3Module._read_tags_wasm) {
-    const arrayBuffer = await file.arrayBuffer();
-    const uint8Array = new Uint8Array(arrayBuffer);
-    const bufferPtr = mp3Module._malloc(uint8Array.length);
-    mp3Module.HEAPU8.set(uint8Array, bufferPtr);
-    const filenamePtr = mp3Module.allocate(mp3Module.intArrayFromString("temp.mp3"), mp3Module.ALLOC_NORMAL);
-    const resultPtr = mp3Module._read_tags_wasm(filenamePtr, bufferPtr, uint8Array.length);
-    const jsonString = mp3Module.UTF8ToString(resultPtr);
-    displayTags(jsonString, resultDiv);
-    mp3Module._free(bufferPtr); mp3Module._free(filenamePtr);
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const uint8Array = new Uint8Array(arrayBuffer);
+      const bufferPtr = mp3Module._malloc(uint8Array.length);
+      mp3Module.HEAPU8.set(uint8Array, bufferPtr);
+      const filenamePtr = mp3Module.allocate(mp3Module.intArrayFromString("temp.mp3"), mp3Module.ALLOC_NORMAL);
+
+      const resultPtr = mp3Module._read_tags_wasm(filenamePtr, bufferPtr, uint8Array.length);
+      const jsonString = mp3Module.UTF8ToString(resultPtr);
+      console.log("MP3 WASM Result:", jsonString);
+
+      displayTags(jsonString, resultDiv);
+
+      mp3Module._free(bufferPtr); mp3Module._free(filenamePtr);
+    } catch (e) {
+      console.error("MP3 WASM Error:", e);
+      resultDiv.innerText = "Error processing MP3 file via WASM.";
+    }
   } else {
     displayTags(jsReadTags(file.name, null), resultDiv);
   }
