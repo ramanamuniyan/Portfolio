@@ -2,35 +2,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  /* Core Palette - User Custom Theme */
-  --bg-dark: #213555;
-  /* Deep Blue */
-  --bg-card: rgba(62, 88, 121, 0.7);
-  /* Slate Blue with opacity */
-  --bg-glass: rgba(245, 239, 231, 0.05);
-  /* Off-White tint */
+  /* Galaxy Theme Palette - Glossy & Elegant */
+  --bg-dark: #050714;
+  /* Deep Space Black */
+  --bg-card: rgba(255, 255, 255, 0.05);
+  /* Ultra-thin Glass */
+  --bg-glass: rgba(255, 255, 255, 0.02);
+  /* Faint Starlight */
 
   /* Accents */
-  --primary: #D8C4B6;
-  /* Warm Beige */
-  --secondary: #3E5879;
-  /* Slate Blue */
-  --accent: #F5EFE7;
-  /* Off-White */
-  --glow: rgba(216, 196, 182, 0.4);
+  --primary: #C77DFF;
+  /* Nebula Purple */
+  --secondary: #7B2CBF;
+  /* Deep Violet */
+  --accent: #E0AAFF;
+  /* Bright Lilac */
+  --glow: rgba(199, 125, 255, 0.5);
 
   /* Text */
-  --text-main: #F5EFE7;
-  /* Off-White */
-  --text-muted: #a0aab5;
-  /* Muted Blue-Grey */
+  --text-main: #FFFFFF;
+  /* Pure White for elegance */
+  --text-muted: #B0B0C0;
+  /* Cool Grey */
 
   /* Borders & Effects */
   --border-glass: rgba(255, 255, 255, 0.1);
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  --backdrop: blur(16px);
-  --radius: 32px;
-  --radius-sm: 16px;
+  --border-highlight: rgba(255, 255, 255, 0.2);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --backdrop: blur(24px);
+  /* Increased blur for premium feel */
+  --radius: 24px;
+  /* Slightly tighter radius */
+  --radius-sm: 12px;
 }
 
 /* Base Reset */
@@ -47,10 +50,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-image:
-    radial-gradient(rgba(216, 196, 182, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 15% 50%, rgba(216, 196, 182, 0.08), transparent 30%),
-    radial-gradient(circle at 85% 30%, rgba(62, 88, 121, 0.15), transparent 30%);
-  background-size: 32px 32px, 100% 100%, 100% 100%;
+    radial-gradient(circle at 50% 0%, rgba(123, 44, 191, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(62, 88, 121, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 100% 50%, rgba(199, 125, 255, 0.1) 0%, transparent 50%);
   background-attachment: fixed;
 }
 
@@ -90,6 +92,8 @@ pre,
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .bento-grid {
@@ -103,16 +107,21 @@ pre,
 
 /* Card Component */
 .card {
-  background: var(--bg-card);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
   backdrop-filter: var(--backdrop);
   -webkit-backdrop-filter: var(--backdrop);
   border: 1px solid var(--border-glass);
+  border-top: 1px solid var(--border-highlight);
+  /* Top highlight for gloss */
+  border-left: 1px solid var(--border-highlight);
+  /* Left highlight for gloss */
   border-radius: var(--radius);
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease;
-  box-shadow: var(--shadow-glass);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* Subtle base shadow */
 
   /* Animation Entry */
   animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
@@ -152,10 +161,11 @@ pre,
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.01);
-  border-color: rgba(216, 196, 182, 0.3);
-  /* Beige tint */
-  box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px) scale(1.005);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.6), 0 0 20px rgba(199, 125, 255, 0.2);
+  /* Glow effect */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
 }
 
 /* --- Specific Grid Areas --- */
@@ -167,7 +177,7 @@ pre,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(145deg, rgba(62, 88, 121, 0.9), rgba(33, 53, 85, 0.95));
+  background: linear-gradient(145deg, rgba(30, 30, 50, 0.8), rgba(10, 10, 20, 0.9));
 }
 
 .profile-content {
@@ -230,7 +240,7 @@ pre,
   font-size: 3rem;
   line-height: 1.1;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #F5EFE7, #D8C4B6);
+  background: linear-gradient(to right, #E0AAFF, #C77DFF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -705,7 +715,8 @@ pre,
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%;
+  /* 16:9 Aspect Ratio */
   height: 0;
   overflow: hidden;
   background: black;
@@ -718,6 +729,7 @@ pre,
   width: 100%;
   height: 100%;
 }
+
 /* --- Shooting Stars Animation --- */
 .star-background {
   position: fixed;
@@ -725,7 +737,7 @@ pre,
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
 }
@@ -739,7 +751,8 @@ pre,
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
-  animation: animate 3s linear infinite;
+  animation: animate 10s linear infinite;
+  opacity: 0;
 }
 
 .star-background span::before {
@@ -758,12 +771,17 @@ pre,
     opacity: 1;
   }
 
-  70% {
+  10% {
     opacity: 1;
   }
 
+  20% {
+    transform: rotate(315deg) translateX(-1500px);
+    opacity: 0;
+  }
+
   100% {
-    transform: rotate(315deg) translateX(-1000px);
+    transform: rotate(315deg) translateX(-1500px);
     opacity: 0;
   }
 }
@@ -772,78 +790,30 @@ pre,
   top: 0;
   right: 0;
   left: initial;
-  animation-delay: 0;
-  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-duration: 8s;
 }
 
 .star-background span:nth-child(2) {
   top: 0;
-  right: 80px;
+  right: 300px;
   left: initial;
-  animation-delay: 0.2s;
-  animation-duration: 3s;
+  animation-delay: 4s;
+  animation-duration: 12s;
 }
 
 .star-background span:nth-child(3) {
   top: 80px;
   right: 0px;
   left: initial;
-  animation-delay: 0.4s;
-  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-duration: 15s;
 }
 
 .star-background span:nth-child(4) {
   top: 0;
-  right: 180px;
-  left: initial;
-  animation-delay: 0.6s;
-  animation-duration: 1.5s;
-}
-
-.star-background span:nth-child(5) {
-  top: 0;
-  right: 400px;
-  left: initial;
-  animation-delay: 0.8s;
-  animation-duration: 2.5s;
-}
-
-.star-background span:nth-child(6) {
-  top: 0;
   right: 600px;
   left: initial;
-  animation-delay: 1s;
-  animation-duration: 3s;
-}
-
-.star-background span:nth-child(7) {
-  top: 300px;
-  right: 0px;
-  left: initial;
-  animation-delay: 1.2s;
-  animation-duration: 1.75s;
-}
-
-.star-background span:nth-child(8) {
-  top: 0px;
-  right: 700px;
-  left: initial;
-  animation-delay: 1.4s;
-  animation-duration: 1.25s;
-}
-
-.star-background span:nth-child(9) {
-  top: 0px;
-  right: 1000px;
-  left: initial;
-  animation-delay: 0.75s;
-  animation-duration: 2.25s;
-}
-
-.star-background span:nth-child(10) {
-  top: 0px;
-  right: 450px;
-  left: initial;
-  animation-delay: 2.75s;
-  animation-duration: 2.25s;
+  animation-delay: 6s;
+  animation-duration: 10s;
 }
