@@ -52,8 +52,11 @@ function openVideo(event, url) {
   const video = document.getElementById('video-frame');
 
   // Force reflow to enable transition
+  modal.style.display = 'flex'; // Ensure it's visible (overriding inline display: none from close)
   void modal.offsetWidth;
   modal.classList.add('show');
+
+  video.src = url;
 
   // Attempt to play automatically
   video.play().catch(e => console.log("Autoplay prevented:", e));
