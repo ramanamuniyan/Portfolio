@@ -6,15 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ramana M | Embedded Systems Engineer</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
+  <meta name="description"
+    content="Portfolio of Ramana M, Embedded Systems Engineer specialized in IoT, RTOS, and Firmware Development using C/C++ and Linux.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ramana M | Embedded Systems Engineer">
+  <meta property="og:description"
+    content="Portfolio of Ramana M, specialized in Embedded Systems, IoT, and Firmware Development.">
+  <meta property="og:image" content="pics/professional.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://ramanamuniyan.github.io/Portfolio/">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ramana M",
+      "jobTitle": "Embedded Systems Engineer",
+      "url": "https://ramanamuniyan.github.io/Portfolio/",
+      "sameAs": [
+        "https://github.com/ramanamuniyan",
+        "https://www.linkedin.com/in/ramanamuniyan"
+      ]
+    }
+  </script>
 </head>
 
 <body>
-  <div class="star-background">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
 
   <div class="bento-wrapper">
     <div class="bento-grid">
@@ -23,32 +45,77 @@
       <div class="card area-profile">
         <div class="profile-content">
           <div class="avatar-wrapper">
-            <img src="pics/professional.png" alt="Ramana M" />
+            <img src="pics/professional.png" alt="Ramana M Profile Picture" loading="lazy" />
             <div class="status-badge"></div>
           </div>
           <div class="role-text">
-            <i data-feather="cpu" width="18"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
             <span id="typing-text">Embedded Engineer</span><span class="typing-cursor"></span>
           </div>
           <h1>Ramana M</h1>
           <p>Building robust firmware & hardware solutions. <br>Specialized in IoT, RTOS, and Low-level Debugging.</p>
 
+          <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+            <a class="btn-primary" href="#projects">View Projects</a>
+            <a class="btn-outline" href="ramana_resume.pdf" download rel="noopener noreferrer" target="_blank">Download
+              CV</a>
+          </div>
+
           <div class="social-links">
-            <a href="https://github.com/ramanamuniyan/" target="_blank" class="social-btn" aria-label="GitHub">
-              <i data-feather="github"></i>
+            <a href="https://github.com/ramanamuniyan/" target="_blank" rel="noopener noreferrer" class="social-btn"
+              aria-label="GitHub Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
             </a>
-            <a href="https://www.linkedin.com/in/ramanamuniyan/" target="_blank" class="social-btn"
-              aria-label="LinkedIn">
-              <i data-feather="linkedin"></i>
+            <a href="https://www.linkedin.com/in/ramanamuniyan/" target="_blank" rel="noopener noreferrer"
+              class="social-btn" aria-label="LinkedIn Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
             </a>
-            <a href="mailto:ramanamuniyan@proton.me" class="social-btn" aria-label="Email">
-              <i data-feather="mail"></i>
+            <a href="mailto:ramanamuniyan@proton.me" class="social-btn" aria-label="Email Me">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a href="https://hub.docker.com/repositories/ramanamuniyan" target="_blank" rel="noopener noreferrer"
+              class="social-btn" aria-label="Docker Hub Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                </path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- 2. Education (Replaced Map) -->
+      <!-- 2. Education -->
       <div class="card area-education">
         <h3>Education</h3>
         <div class="edu-item">
@@ -64,123 +131,327 @@
       </div>
 
       <!-- 3. Resume -->
-      <a href="ramana_resume.pdf" target="_blank" class="card area-resume">
+      <a href="ramana_resume.pdf" download target="_blank" rel="noopener noreferrer" class="card area-resume"
+        aria-label="Download Resume">
         <div class="resume-icon">
-          <i data-feather="file-text"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
         </div>
         <div class="download-btn">
           <span>Download CV</span>
-          <i data-feather="arrow-up-right"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
         </div>
       </a>
 
-      <!-- 6. About (Moved Up) -->
+      <!-- 6. About -->
       <div class="card area-about">
         <div class="about-text">
           <h3>My Journey</h3>
           <p style="margin-top: 1rem;">
             My fascination with technology isn't just about writing code; it's about bridging the gap between hardware
-            and
-            software.
-            As an <strong>Electronics & Communication Engineering</strong> graduate, I dove deep into the world of
-            <strong>Embedded Systems</strong> through an intensive
-            Advanced Course at <a href="http://www.emertxe.com" target="_blank"
-              style="color:var(--primary)">Emertxe</a>.
+            and software. As an <strong>Electronics & Communication Engineering</strong> graduate, I dove deep into the
+            world of
+            <strong>Embedded Systems</strong> through an intensive Advanced Course at <a href="http://www.emertxe.com"
+              target="_blank" rel="noopener noreferrer" style="color:var(--primary)">Emertxe</a>.
           </p>
           <p style="margin-top: 0.5rem;">
             I love the challenge of working "close to the metal"—whether it's architecting efficient firmware for
-            microcontrollers,
-            debugging complex PCBs, or building IoT solutions that solve real-world problems. My goal is simple: to
-            build
-            reliable,
-            useful systems that make a difference.
+            microcontrollers, debugging complex PCBs, or building IoT solutions that solve real-world problems. My goal
+            is simple: to build
+            reliable, useful systems that make a difference.
           </p>
         </div>
       </div>
 
-      <!-- 4. Skills (Moved Down) -->
+      <!-- 4. Skills -->
       <div class="card area-skills">
         <h3>Tech Stack</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">C / C++</span>
-          <span class="skill-tag">Embedded C</span>
-          <span class="skill-tag">RTOS</span>
-          <span class="skill-tag">ESP32</span>
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">UART/SPI/I2C</span>
-          <span class="skill-tag">PCB Debug</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Data Structures</span>
+        <div id="tech-list" class="skill-tags">
+          <span class="skill-tag" onclick="openTechInfo(event, 'c_cpp')">C / C++</span>
+          <span class="skill-tag" onclick="openTechInfo(event, 'embedded_c')">Embedded C</span>
+          <span class="skill-tag" onclick="openTechInfo(event, 'rtos')">RTOS</span>
+          <span class="skill-tag" onclick="openTechInfo(event, 'esp32')">ESP32</span>
+          <span class="skill-tag" onclick="openTechInfo(event, 'linux')">Linux</span>
+          <span class="skill-tag" onclick="openTechInfo(event, 'comms')">UART/SPI/I2C</span>
+          <span class="skill-tag" onclick="openTechInfo(event, 'pcb')">PCB Debug</span>
+          <span class="skill-tag" onclick="openTechInfo(event, 'git')">Git</span>
+          <span class="skill-tag" onclick="openTechInfo(event, 'dsa')">Data Structures</span>
+        </div>
+
+        <!-- Detail View (Hidden by default) -->
+        <div id="tech-detail" class="tech-detail" style="display: none;">
+          <div class="tech-header">
+            <button class="back-btn" onclick="closeTechInfo()" aria-label="Back to list">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+            <h4 id="tech-title">Title</h4>
+          </div>
+          <p id="tech-desc" class="tech-desc">Description goes here.</p>
+          <div class="tech-usage">
+            <h5>Where to use:</h5>
+            <ul id="tech-use-cases">
+              <!-- LI items here -->
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- 5. Projects -->
-      <div class="card area-projects">
+      <div class="card area-projects" id="projects">
         <h3>Featured Projects</h3>
         <br>
 
-        <div class="project-item">
-          <div class="project-icon">IoT</div>
-          <div class="project-info">
-            <h4>Smart Ironing Automation</h4>
-            <p>Automated vacuum ironing table that turns ON only when a person is nearby and turns OFF automatically.
-              Uses <strong>ESP32 & PIR Sensors</strong> to control a relay circuit, saving electricity and preventing
-              overheating.</p>
-            <span class="project-link">IoT / Embedded</span>
+        <div class="projects-list">
+          <!-- Project 1: Smart Ironing -->
+          <div class="project-item" role="article">
+            <div class="project-icon">IoT</div>
+            <div class="project-info">
+              <h4>Smart Ironing Automation</h4>
+              <div class="badge-container">
+                <span class="badge">Arduino IDE</span>
+                <span class="badge">ESP32</span>
+                <span class="badge">PIR Sensor</span>
+                <span class="badge">Relay</span>
+              </div>
+              <div class="signals-container">
+                <span class="signal-chip highlight">Latency &lt;200ms</span>
+                <span class="signal-chip">Fail-Safe Design</span>
+                <span class="signal-chip">Interrupt-Driven</span>
+              </div>
+              <p><strong>What I built:</strong> Engineered an automated ironing table that activates only when presence
+                is
+                detected, using ESP32 control logic.</p>
+              <p><strong>Impact / What I learned:</strong> Calibrated PIR sensors to eliminate false triggers and safely
+                interfaced low-voltage microcontrollers with high-voltage AC loads.</p>
+
+              <button class="btn-case-study" onclick="openCaseStudy(event, 'ironing')">
+                View Case Study
+              </button>
+
+              <span class="project-link" style="display:inline-block; margin-top:10px;">IoT / Embedded</span>
+            </div>
+          </div>
+
+          <!-- Project 2: Inverted Search -->
+          <div class="project-item" role="article">
+            <div class="project-icon">IS</div>
+            <div class="project-info">
+              <h4>Inverted Search Engine</h4>
+              <div class="badge-container">
+                <span class="badge">Advanced C</span>
+                <span class="badge">Hash Tables</span>
+                <span class="badge">Linked Lists</span>
+                <span class="badge">File Handling</span>
+              </div>
+              <div class="signals-container">
+                <span class="signal-chip highlight">O(1) Avg Lookup</span>
+                <span class="signal-chip">Valgrind Verified</span>
+                <span class="signal-chip">Custom Data Structs</span>
+              </div>
+              <p><strong>What I built:</strong> Built an inverted index system using hash tables to map words to their
+                file locations for rapid multi-document searching.</p>
+              <p><strong>Constraint:</strong> strict memory bounds while indexing large datasets.</p>
+              <p><strong>Engineering:</strong> Built a custom hash table with separate chaining (linked lists) to handle
+                collisions and dynamic content scaling.</p>
+
+              <button class="btn-case-study" onclick="openCaseStudy(event, 'inverted')">
+                View Case Study
+              </button>
+
+              <div style="margin-bottom: 1rem; margin-top: 1rem;">
+                <a href="#"
+                  onclick="openVideo(event, 'videos/Heap-Search.webm', 'pics/inverted-search-using-hashtable-poster.png')"
+                  class="project-link" style="margin-right: 10px;">Watch Demo &rarr;</a>
+                <a href="https://github.com/ramanamuniyan/Inverted-Search-using-hashtable" target="_blank"
+                  rel="noopener noreferrer" class="project-link" style="margin-right: 10px;">View Code &rarr;</a>
+                <a href="https://hub.docker.com/r/ramanamuniyan/inverted-search-using-hashtable" target="_blank"
+                  rel="noopener noreferrer" class="project-link">Docker Hub &rarr;</a>
+              </div>
+
+              <div class="docker-container" role="button" tabindex="0" aria-label="Click to copy Docker command"
+                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/inverted-search-using-hashtable')"
+                onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+                <code class="docker-command">docker pull ramanamuniyan/inverted-search-using-hashtable</code>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="copy-icon">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: APC -->
+          <div class="project-item" role="article">
+            <div class="project-icon">AP</div>
+            <div class="project-info">
+              <h4>Arbitrary Precision Calc</h4>
+              <div class="badge-container">
+                <span class="badge">Advanced C</span>
+                <span class="badge">Linked Lists</span>
+                <span class="badge">Pointers</span>
+                <span class="badge">Memory Mgmt</span>
+              </div>
+              <div class="signals-container">
+                <span class="signal-chip highlight">Memory Safe</span>
+                <span class="signal-chip">Double Linked List</span>
+                <span class="signal-chip">Big O(n) Ops</span>
+              </div>
+              <p><strong>What I built:</strong> Developed a calculator capable of processing arithmetic on numbers of
+                any
+                size using a custom linked list data structure.</p>
+              <p><strong>Impact / What I learned:</strong> Resolved complex memory leaks by using Valgrind to ensure all
+                dynamic nodes were properly freed after operations.</p>
+
+              <button class="btn-case-study" onclick="openCaseStudy(event, 'apc')">
+                View Case Study
+              </button>
+
+              <div style="margin-bottom: 1rem; margin-top: 1rem;">
+                <a href="#"
+                  onclick="openVideo(event, 'videos/apc.webm', 'pics/arbitrary-precision-calculator-poster.png')"
+                  class="project-link" style="margin-right: 10px;">Watch Demo &rarr;</a>
+                <a href="https://github.com/ramanamuniyan/Arbitrary-Precision-Calculator" target="_blank"
+                  rel="noopener noreferrer" class="project-link" style="margin-right: 10px;">View Code &rarr;</a>
+                <a href="https://hub.docker.com/r/ramanamuniyan/arbitrary-precision-calculator" target="_blank"
+                  rel="noopener noreferrer" class="project-link">Docker Hub &rarr;</a>
+              </div>
+
+              <div class="docker-container" role="button" tabindex="0" aria-label="Click to copy Docker command"
+                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/arbitrary-precision-calculator')"
+                onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+                <code class="docker-command">docker pull ramanamuniyan/arbitrary-precision-calculator</code>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="copy-icon">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: MP3 -->
+          <div class="project-item" role="article">
+            <div class="project-icon">MP3</div>
+            <div class="project-info">
+              <h4>MP3 Tag Reader</h4>
+              <div class="badge-container">
+                <span class="badge">Advanced C</span>
+                <span class="badge">File Parsing</span>
+                <span class="badge">Structures</span>
+              </div>
+              <div class="signals-container">
+                <span class="signal-chip highlight">Binary Parsing</span>
+                <span class="signal-chip">Endian Conversion</span>
+                <span class="signal-chip">Offset Calc</span>
+              </div>
+              <p><strong>What I built:</strong> Wrote a tool that extracts and displays ID3 metadata (Title, Artist,
+                Album) from MP3 files using direct byte manipulation.</p>
+              <p><strong>Impact / What I learned:</strong> Overcame big-endian data challenges by implementing endian
+                conversion logic to correctly read binary headers.</p>
+
+              <button class="btn-case-study" onclick="openCaseStudy(event, 'mp3')">
+                View Case Study
+              </button>
+
+              <div style="margin-bottom: 1rem; margin-top: 1rem;">
+                <a href="#" onclick="openVideo(event, 'videos/mp3.webm', 'pics/mp3-tag-read-edit-poster.png')"
+                  class="project-link" style="margin-right: 10px;">Watch Demo &rarr;</a>
+                <a href="https://github.com/ramanamuniyan/mp3_tag_read_edit" target="_blank" rel="noopener noreferrer"
+                  class="project-link" style="margin-right: 10px;">View Code &rarr;</a>
+                <a href="https://hub.docker.com/r/ramanamuniyan/mp3-tag-read-edit" target="_blank"
+                  rel="noopener noreferrer" class="project-link">Docker Hub &rarr;</a>
+              </div>
+
+              <div class="docker-container" role="button" tabindex="0" aria-label="Click to copy Docker command"
+                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/mp3-tag-read-edit')"
+                onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+                <code class="docker-command">docker pull ramanamuniyan/mp3-tag-read-edit</code>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="copy-icon">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: LSB -->
+          <div class="project-item" role="article">
+            <div class="project-icon">LSB</div>
+            <div class="project-info">
+              <h4>LSB Image Steganography</h4>
+              <div class="badge-container">
+                <span class="badge">Embedded C</span>
+                <span class="badge">Bitwise Ops</span>
+                <span class="badge">Makefiles</span>
+              </div>
+              <div class="signals-container">
+                <span class="signal-chip highlight">Lossless</span>
+                <span class="signal-chip">Bitwise Manipulation</span>
+                <span class="signal-chip">Buffer Handling</span>
+              </div>
+              <p><strong>What I built:</strong> Created a steganography tool that embeds secret messages into the least
+                significant bits of BMP images for secure data hiding.</p>
+              <p><strong>Impact / What I learned:</strong> Decoded file headers manually and used bitwise masking to
+                ensure the modified image remained visually identical to the original.</p>
+
+              <button class="btn-case-study" onclick="openCaseStudy(event, 'stego')">
+                View Case Study
+              </button>
+
+              <div style="margin-bottom: 1rem; margin-top: 1rem;">
+                <a href="#" onclick="openVideo(event, 'videos/stegnograph.webm', 'pics/stegnograph-poster.png')"
+                  class="project-link" style="margin-right: 10px;">Watch Demo &rarr;</a>
+                <a href="https://github.com/ramanamuniyan/Stegnograph" target="_blank" rel="noopener noreferrer"
+                  class="project-link" style="margin-right: 10px;">View Code &rarr;</a>
+                <a href="https://hub.docker.com/r/ramanamuniyan/stegnograph" target="_blank" rel="noopener noreferrer"
+                  class="project-link">Docker Hub &rarr;</a>
+              </div>
+
+              <div class="docker-container" role="button" tabindex="0" aria-label="Click to copy Docker command"
+                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/stegnograph')"
+                onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+                <code class="docker-command">docker pull ramanamuniyan/stegnograph</code>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="copy-icon">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="project-item">
-          <div class="project-icon">IS</div>
-          <div class="project-info">
-            <h4>Inverted Search Engine</h4>
-            <p>Created an inverted index from multiple text files using <strong>Hash Tables</strong>. Stores file names
-              and word counts for fast and efficient searching across multiple documents.</p>
-            <a href="https://github.com/ramanamuniyan/Inverted-Search-using-hashtable" target="_blank"
-              class="project-link">View Code &rarr;</a>
-            <a href="#" onclick="openVideo(event, 'videos/Heap-Search.webm')" class="project-link"
-              style="margin-left: 10px;">Watch Demo &rarr;</a>
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-icon">AP</div>
-          <div class="project-info">
-            <h4>Arbitrary Precision Calc</h4>
-            <p>Performs mathematical operations on very large numbers that cannot fit into standard data types. Uses
-              <strong>Linked Lists</strong> to treat each digit as a separate element for infinite precision.
-            </p>
-            <a href="https://github.com/ramanamuniyan/Arbitrary-Precision-Calculator" target="_blank"
-              class="project-link">View Code &rarr;</a>
-            <a href="#" onclick="openVideo(event, 'videos/apc.webm')" class="project-link"
-              style="margin-left: 10px;">Watch Demo &rarr;</a>
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-icon">MP3</div>
-          <div class="project-info">
-            <h4>MP3 Tag Reader</h4>
-            <p>Reads and displays metadata (Title, Artist, Album) from MP3 files. Uses byte-level parsing to locate the
-              <strong>ID3 tag header</strong> and decode stored fields.
-            </p>
-            <a href="https://github.com/ramanamuniyan/mp3_tag_read_edit" target="_blank" class="project-link">View Code
-              &rarr;</a>
-            <a href="#" onclick="openVideo(event, 'videos/mp3.webm')" class="project-link"
-              style="margin-left: 10px;">Watch Demo &rarr;</a>
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-icon">LSB</div>
-          <div class="project-info">
-            <h4>LSB Image Steganography</h4>
-            <p>Transfers secret data by embedding each bit of the message into the <strong>Least Significant
-                Bits</strong> of a BMP image. Includes magic string verification for secure decoding.</p>
-            <a href="https://github.com/ramanamuniyan/Stegnograph" target="_blank" class="project-link">View Code
-              &rarr;</a>
-            <a href="#" onclick="openVideo(event, 'videos/stegnograph.webm')" class="project-link"
-              style="margin-left: 10px;">Watch Demo &rarr;</a>
+        <!-- Case Study Modal -->
+        <!-- Case Study Modal (New Standard) -->
+        <div id="case-modal" class="case-modal" role="dialog" aria-modal="true" aria-labelledby="case-modal-title"
+          style="display:none">
+          <div class="case-modal__overlay" id="case-modal-overlay"></div>
+          <div class="case-modal__dialog" role="document" tabindex="-1">
+            <button class="case-modal__close" id="case-modal-close" aria-label="Close case study">&times;</button>
+            <div class="case-study-header">
+              <h2 id="case-modal-title"></h2>
+            </div>
+            <div id="case-modal-body" class="case-modal__body"></div>
           </div>
         </div>
 
@@ -190,21 +461,23 @@
       <div class="card area-awards">
         <h3>Spot Awards</h3>
         <div class="award-list">
-          <div class="award-item">
-            <img src="pics/spot_award.png" alt="Spot Award" class="award-icon" />
+          <div class="award-item" role="button" tabindex="0" aria-label="View Spot Award Certificate"
+            onclick="openImage('pics/spot_award.png')"
+            onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+            <img src="pics/spot_award.png" alt="Spot Award - Efficient Solution" class="award-icon" loading="lazy" />
             <div class="award-details">
               <h4>Emertxe Spot Award</h4>
               <p>Received the Student Spot Award from Emertxe for presenting a smart and efficient solution to an
-                in-class problem! Moments like this fuel my drive to push boundaries and keep sharpening my skills in
-                Embedded Systems and low-level programming.</p>
+                in-class problem.</p>
             </div>
           </div>
-          <div class="award-item">
-            <img src="pics/spot_award_2.png" alt="Spot Award" class="award-icon" />
+          <div class="award-item" role="button" tabindex="0" aria-label="View Spot Award Certificate"
+            onclick="openImage('pics/spot_award_2.png')"
+            onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+            <img src="pics/spot_award_2.png" alt="Spot Award - Enthusiasm" class="award-icon" loading="lazy" />
             <div class="award-details">
               <h4>Emertxe Spot Award</h4>
-              <p>Recognized for showing a lot of enthusiasm and inclination towards learning Data Structures module.
-                This goes a long way in building a solid career in core industry.</p>
+              <p>Recognized for showing a lot of enthusiasm and inclination towards learning Data Structures.</p>
             </div>
           </div>
         </div>
@@ -222,12 +495,24 @@
     </div>
   </div>
 
+  </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div id="image-modal" class="video-modal" onclick="closeImage()">
+    <div class="modal-content image-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeImage()">&times;</span>
+      <img id="image-frame" src="" alt="Award Certificate"
+        style="width: 100%; height: auto; display: block; border-radius: var(--radius);">
+    </div>
+  </div>
+
   <!-- Video Modal -->
   <div id="video-modal" class="video-modal" onclick="closeVideo()">
     <div class="modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeVideo()">&times;</span>
       <div class="video-container">
-        <video id="video-frame" controls width="100%"
+        <video id="video-frame" controls width="100%" preload="metadata"
           style="position: absolute; top: 0; left: 0; height: 100%; object-fit: contain;">
           Your browser does not support the video tag.
         </video>
@@ -235,12 +520,7 @@
     </div>
   </div>
 
-  <!-- Modals removed -->
-
-  <!-- WASM Modules Removed -->
-  <script>
-    feather.replace();
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
