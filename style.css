@@ -352,8 +352,8 @@ pre,
 
 .skill-tags {
   display: flex;
-  flex-direction: column;
-  /* Vertical list as requested */
+  flex-wrap: wrap;
+  /* Cloud layout */
   gap: 0.75rem;
   margin-top: 1rem;
   position: relative;
@@ -361,26 +361,32 @@ pre,
 }
 
 .skill-tag {
-  padding: 0.75rem 1rem;
-  /* Slightly more padding for list variation */
-  background: var(--bg-glass);
+  padding: 0.6rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  /* Subtle glass */
   border: 1px solid var(--border-glass);
-  border-radius: var(--radius);
-  /* Rounded rects instead of pills for list */
-  font-size: 0.875rem;
+  border-radius: 50px;
+  /* Pill shape */
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-muted);
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-align: center;
-  /* Center text */
-  width: 100%;
   cursor: pointer;
+
+  /* Prevent full width */
+  width: auto;
+  flex-grow: 1;
+  /* evenly distribute */
+  max-width: fit-content;
 }
 
 .skill-tag:hover {
-  background: rgba(216, 196, 182, 0.1);
-  color: var(--primary);
+  background: rgba(255, 255, 255, 0.08);
   border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* 5. Projects (Bottom Row - Large) */
@@ -834,33 +840,43 @@ pre,
   align-items: center;
   justify-content: center;
   z-index: 10000;
+  opacity: 0;
+  /* transition removed */
 }
 
 .case-modal__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: transparent;
+}
+
+/* Shared Glass Modal Styles */
+.case-modal__dialog,
+.tech-case-dialog {
+  background: #213555;
+  /* Solid Deep Blue */
+  /* backdrop-filter removed */
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius);
+  transition: none !important;
 }
 
 .case-modal__dialog {
   position: relative;
-  background: rgba(15, 20, 28, 0.95);
-  /* More opaque for readability */
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* background/border/shadow moved to shared rule */
   max-width: 900px;
   width: calc(100% - 48px);
   max-height: 90vh;
-  border-radius: 12px;
   overflow: hidden;
   /* Important: Body scrolls, not dialog container */
   padding: 0;
   /* Padding moved to header/body */
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--border-glass);
   display: flex;
   flex-direction: column;
 }
+
+
 
 .case-modal__body {
   overflow-y: auto;
@@ -893,7 +909,10 @@ pre,
 }
 
 .case-modal.show {
+  display: flex !important;
+  /* Ensure it overrides any inline display style issues during transition if unrelated logic interferes, but standard flex is fine. Keeping it simple. */
   display: flex;
+  opacity: 1;
 }
 
 /* focus & accessibility */
@@ -1098,7 +1117,6 @@ pre,
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-top: 0.75rem;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   cursor: pointer;
@@ -1308,4 +1326,33 @@ pre,
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+}
+
+/* --- Tech Case Study Modal (Smaller, Reusable) --- */
+.tech-case-dialog {
+  max-width: 600px;
+  max-height: 80vh;
+  width: 90%;
+  margin: auto;
+  /* background/border/shadow moved to shared rule */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.tech-case-dialog .case-study-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.tech-case-dialog .case-modal__body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  /* Custom Scrollbar for modal */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
 }

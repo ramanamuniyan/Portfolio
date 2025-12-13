@@ -48,7 +48,7 @@ document.querySelectorAll('.card').forEach((card) => {
 });
 
 
-// Video Modal Logic (Robust)
+// Video Modal Logic (Robust & Netlify Safe)
 function openVideo(event, url, poster = null) {
   if (event) event.preventDefault();
 
@@ -57,26 +57,27 @@ function openVideo(event, url, poster = null) {
 
   if (!modal || !video) return;
 
-  // Reset state
+  // 1. Reset State (Defensive)
   video.pause();
+  video.innerHTML = ''; // Clear any existing <source> tags
 
-  // Set Poster
+  // 2. Set Attributes
   if (poster) {
     video.setAttribute('poster', poster);
   } else {
     video.removeAttribute('poster');
   }
 
-  // Set Source
-  video.innerHTML = ''; // Clear children
+  // 3. Load Source Strictly
   video.src = url;
+  video.load(); // Reset buffer
 
-  video.load(); // Important to reset buffer
-
+  // 4. Show Modal
   modal.classList.add('show');
   modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden'; // Lock scroll
 
-  // Attempt play
+  // 5. Attempt Play
   const playPromise = video.play();
   if (playPromise !== undefined) {
     playPromise.catch(error => {
@@ -98,10 +99,27 @@ function closeVideo() {
     video.pause();
     video.src = ""; // Stop buffering
     video.removeAttribute('src'); // Clean up
-    video.load();
+    video.load(); // Reset to empty state
   }
-  video.load();
+
+  document.body.style.overflow = ''; // Restore scroll safely
 }
+
+// Centralized Keyboard Handler (Replacing inline onkeydown)
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    const target = event.target;
+    // Handle .skill-tag, .docker-container, .award-item, .btn-case-study
+    if (target.classList.contains('skill-tag') ||
+      target.classList.contains('docker-container') ||
+      target.classList.contains('award-item') ||
+      target.classList.contains('btn-case-study')) {
+
+      event.preventDefault(); // Prevent scroll on Space
+      target.click(); // Trigger the click handler
+    }
+  }
+});
 
 // Image Modal Logic
 function openImage(src) {
@@ -176,9 +194,9 @@ function fallbackCopyTextToClipboard(text, feedbackElement) {
 }
 
 function showFeedback(el) {
-  el.classList.add('visible');
+  el.classList.add('show');
   setTimeout(() => {
-    el.classList.remove('visible');
+    el.classList.remove('show');
   }, 2000);
 }
 
@@ -241,6 +259,73 @@ const caseStudies = {
   }
 };
 
+// Tech Case Study Data (Deep Dive)
+const techCaseStudies = {
+  "c_cpp": {
+    title: "C / C++",
+    what: "The foundational language of embedded systems, offering direct mapping to machine instructions and zero-overhead abstractions.",
+    usage: "Used for writing bare-metal firmware drivers, high-performance computing loops, and standard template library (STL) implementations in constrained environments.",
+    challenges: "Managing manual memory allocation (malloc/free) to prevent leaks and navigating undefined undefined behavior in pointer arithmetic.",
+    takeaways: "Mastered the importance of RAII (Resource Acquisition Is Initialization) in C++ and strict static analysis in C to ensure memory safety."
+  },
+  "embedded_c": {
+    title: "Embedded C",
+    what: "An extension of C standardized for embedded systems, focusing on fixed-point arithmetic, named address spaces, and hardware I/O addressing.",
+    usage: "Implemented Board Support Packages (BSPs), Interrupt Service Routines (ISRs), and startup code `crt0.s` for ARM Cortex-M microcontrollers.",
+    challenges: "Handling race conditions in shared global variables between main loop and ISRs. Ensuring atomic access to memory-mapped registers.",
+    takeaways: "Deep understanding of the `volatile` keyword, memory barriers, and the critical importance of keeping ISRs short and deterministic."
+  },
+  "rtos": {
+    title: "RTOS (FreeRTOS)",
+    what: "Real-Time Operating System kernel responsible for task scheduling, inter-process communication, and resource management.",
+    usage: "Designed multi-threaded firmware architectures using Task Notifications, Queues for message passing, and Binary Semaphores for hardware synchronization.",
+    challenges: "Diagnosing stack overflows and debugging Priority Inversion scenarios where high-priority tasks were starved by lower ones.",
+    takeaways: "Learned to design systems deterministically, calculating worst-case execution time (WCET) and appropriately sizing thread stacks."
+  },
+  "esp32": {
+    title: "ESP32 Ecosystem",
+    what: "A feature-rich MCU with dual-core Xtensa LX6 processors, integrated Wi-Fi/BT, and extensive peripheral interfaces.",
+    usage: "Deployed IoT sensor nodes using ESP-IDF. Optimized power consumption using User Low Power (ULP) coprocessor during Deep Sleep modes.",
+    challenges: "Managing dual-core concurrency issues and ensuring thread safety when accessing shared peripherals like WiFi middleware.",
+    takeaways: "Gained expertise in event-driven programming and optimizing OTA (Over-The-Air) update partitions for reliable remote firmware deployment."
+  },
+  "linux": {
+    title: "Linux System Programming",
+    what: "Development within the Linux kernel and user-space, managing device drivers, system calls, and file operations.",
+    usage: " wrote shell scripts for system automation, configured Device Trees (DTS) for custom hardware, and developed multi-process user-space applications.",
+    challenges: "Debugging kernel panics caused by faulty loadable kernel modules (LKMs) and understanding the complex boot process.",
+    takeaways: "Solidified knowledge of the User/Kernel space boundary, file descriptors, and the 'Everything is a File' philosophy of Unix systems."
+  },
+  "comms": {
+    title: "UART / SPI / I2C",
+    what: "Synchronous and Asynchronous serial communication protocols essential for inter-chip data exchange.",
+    usage: "Interfaced accelerometers (SPI), EEPROMs (I2C), and GSM modules (UART). Implemented software-based bit-banging for non-standard protocols.",
+    challenges: "Debugging signal integrity issues like bus capacitance on I2C lines and clock polarity mistmatches on SPI.",
+    takeaways: "Proficiency in using Logic Analyzers to decode protocol frames and verify timing requirements against datasheets."
+  },
+  "pcb": {
+    title: "PCB Debugging",
+    what: "The physical verification layer of embedded engineering, ensuring hardware matches design intent.",
+    usage: "Performed board bring-up, continuity testing, and signal verification using Oscilloscopes and Digital Multimeters.",
+    challenges: "Identifying cold solder joints and troubleshooting power rail noise coupling into sensitive analog ADC lines.",
+    takeaways: "Hardware issues often manifest as intermittent software bugs. Always verify power stability and clock quality first."
+  },
+  "git": {
+    title: "Git & Version Control",
+    what: "Distributed version control system for tracking changes and coordinating work among programmers.",
+    usage: "Utilized Feature Branch workflows, interactive rebasing for clean commit history, and Git hooks for pre-commit linting.",
+    challenges: "Resolving complex merge conflicts in auto-generated code files and managing submodule dependencies across projects.",
+    takeaways: "A clean, atomic commit history is as important as the code itself for long-term maintainability and debugging (git bisect)."
+  },
+  "dsa": {
+    title: "Data Structures & Algos",
+    what: "The toolkit for organizing data efficiently to optimize performance and storage.",
+    usage: "Implemented Circular Buffers for UART streams, Hash Tables for O(1) lookups, and Custom Allocators for deterministic memory usage.",
+    challenges: "Adapting standard algorithms to run within Kilobytes of RAM without dynamic allocation overhead.",
+    takeaways: "Choosing the right data structure (e.g., Ring Buffer vs Linked List) is the single biggest factor in system performance and reliability."
+  }
+};
+
 const techDefinitions = {
   "c_cpp": "The foundation of embedded systems. Use it for low-level memory management, pointer arithmetic, and writing efficient firmware that interacts directly with hardware registers.",
   "embedded_c": "Specialized C for microcontrollers. Involves bitwise operations, interrupt service routines (ISRs), and optimizing code for constrained memory (RAM/ROM) environments.",
@@ -274,6 +359,7 @@ function openCaseStudy(event, id) {
   // Save current focus
   lastFocusedElement = document.activeElement;
 
+  const trigger = event.currentTarget || event.target;
   const modal = document.getElementById('case-modal');
   const titleEl = document.getElementById('case-modal-title');
   const bodyEl = document.getElementById('case-modal-body');
@@ -299,16 +385,81 @@ function openCaseStudy(event, id) {
       </div>
     `;
 
+    // Instant Open (No Animation, No Highlight)
+    modal.style.display = 'flex';
     modal.classList.add('show');
-    modal.style.display = 'flex'; // Enforced by class, but explicit here for safety
-
-    // Highlight effect
-    dialog.classList.add('case-modal__highlight');
-    setTimeout(() => dialog.classList.remove('case-modal__highlight'), 1200);
 
     // Focus management
     dialog.focus();
-    dialog.scrollTop = 0; // Reset scroll
+    dialog.scrollTop = 0;
+  }
+}
+
+function closeCaseStudy() {
+  const modal = document.getElementById('case-modal');
+  if (modal) {
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+
+    // Restore Body Scroll
+    document.body.style.overflow = '';
+
+    // Restore Focus
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+  }
+}
+
+let lastTechFocusedElement = null;
+
+function openTechCase(event, id) {
+  if (event) event.preventDefault();
+  lastTechFocusedElement = document.activeElement;
+
+  // 1. Identify Trigger & Modal
+  const trigger = event.currentTarget || event.target;
+  const modal = document.getElementById('tech-case-modal');
+  const titleEl = document.getElementById('tech-case-title');
+  const bodyEl = document.getElementById('tech-case-body');
+
+  const data = techCaseStudies[id];
+
+  if (modal && titleEl && bodyEl && data) {
+    // 2. Populate Content
+    titleEl.textContent = data.title;
+    bodyEl.innerHTML = `
+      <div class="case-study-body">
+        ${renderSection('What it is', data.what, 'text-blue-400')}
+        ${renderSection('How I used it', data.usage, 'text-green-400')}
+        ${renderSection('Key Challenges', data.challenges, 'text-yellow-400')}
+        ${renderSection('Engineering Takeaways', data.takeaways, 'text-purple-400')}
+      </div>
+    `;
+
+    document.body.style.overflow = 'hidden';
+
+    // 3. Instant Open (No Animation)
+    modal.style.display = 'flex';
+    modal.classList.add('show');
+
+    // 4. Focus
+    const dialog = modal.querySelector('.case-modal__dialog');
+    dialog.focus();
+    dialog.scrollTop = 0;
+  }
+}
+
+function closeTechCase() {
+  const modal = document.getElementById('tech-case-modal');
+  if (modal) {
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+    document.body.style.overflow = ''; // Unlock scroll
+
+    if (lastTechFocusedElement) {
+      lastTechFocusedElement.focus();
+    }
   }
 }
 
@@ -366,21 +517,6 @@ function closeTechInfo() {
   }
 }
 
-function closeCaseStudy() {
-  const modal = document.getElementById('case-modal');
-  if (modal) {
-    modal.classList.remove('show');
-    modal.style.display = 'none';
-
-    // Restore Body Scroll
-    document.body.style.overflow = '';
-
-    // Restore Focus
-    if (lastFocusedElement) {
-      lastFocusedElement.focus();
-    }
-  }
-}
 
 // Focus Trap Logic
 document.addEventListener('keydown', function (e) {
@@ -412,6 +548,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('case-modal-overlay');
   if (closeBtn) closeBtn.addEventListener('click', closeCaseStudy);
   if (overlay) overlay.addEventListener('click', closeCaseStudy);
+  const techCloseBtn = document.getElementById('tech-case-close');
+  const techOverlay = document.getElementById('tech-case-overlay');
+
+  if (techCloseBtn) techCloseBtn.addEventListener('click', closeTechCase);
+  if (techOverlay) techOverlay.addEventListener('click', closeTechCase);
 });
 
 // Generic Escape key to close any active modal
@@ -420,10 +561,12 @@ document.addEventListener('keydown', function (event) {
     const videoModal = document.getElementById('video-modal');
     const imageModal = document.getElementById('image-modal');
     const caseModal = document.getElementById('case-modal');
+    const techModal = document.getElementById('tech-case-modal');
 
     // Simple check for visibility
     if (videoModal && videoModal.style.display !== 'none') closeVideo();
     if (imageModal && imageModal.style.display !== 'none') closeImage();
     if (caseModal && caseModal.style.display !== 'none') closeCaseStudy();
+    if (techModal && techModal.style.display !== 'none') closeTechCase();
   }
 });

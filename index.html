@@ -45,7 +45,8 @@
       <div class="card area-profile">
         <div class="profile-content">
           <div class="avatar-wrapper">
-            <img src="pics/professional.png" alt="Ramana M Profile Picture" loading="lazy" />
+            <!-- Netlify Prod Fix: Added explicit dimensions -->
+            <img src="pics/professional.png" width="1024" height="1024" alt="Ramana M Profile Picture" loading="lazy" />
             <div class="status-badge"></div>
           </div>
           <div class="role-text">
@@ -69,6 +70,7 @@
 
           <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
             <a class="btn-primary" href="#projects">View Projects</a>
+            <!-- Netlify Prod Fix: Verified secure target -->
             <a class="btn-outline" href="ramana_resume.pdf" download rel="noopener noreferrer" target="_blank">Download
               CV</a>
           </div>
@@ -176,37 +178,18 @@
       <!-- 4. Skills -->
       <div class="card area-skills">
         <h3>Tech Stack</h3>
-        <div id="tech-list" class="skill-tags">
-          <span class="skill-tag" onclick="openTechInfo(event, 'c_cpp')">C / C++</span>
-          <span class="skill-tag" onclick="openTechInfo(event, 'embedded_c')">Embedded C</span>
-          <span class="skill-tag" onclick="openTechInfo(event, 'rtos')">RTOS</span>
-          <span class="skill-tag" onclick="openTechInfo(event, 'esp32')">ESP32</span>
-          <span class="skill-tag" onclick="openTechInfo(event, 'linux')">Linux</span>
-          <span class="skill-tag" onclick="openTechInfo(event, 'comms')">UART/SPI/I2C</span>
-          <span class="skill-tag" onclick="openTechInfo(event, 'pcb')">PCB Debug</span>
-          <span class="skill-tag" onclick="openTechInfo(event, 'git')">Git</span>
-          <span class="skill-tag" onclick="openTechInfo(event, 'dsa')">Data Structures</span>
-        </div>
-
-        <!-- Detail View (Hidden by default) -->
-        <div id="tech-detail" class="tech-detail" style="display: none;">
-          <div class="tech-header">
-            <button class="back-btn" onclick="closeTechInfo()" aria-label="Back to list">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-              </svg>
-            </button>
-            <h4 id="tech-title">Title</h4>
-          </div>
-          <p id="tech-desc" class="tech-desc">Description goes here.</p>
-          <div class="tech-usage">
-            <h5>Where to use:</h5>
-            <ul id="tech-use-cases">
-              <!-- LI items here -->
-            </ul>
-          </div>
+        <div class="skill-tags">
+          <!-- Netlify Prod Fix: Removed inline onkeydown -->
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'c_cpp')">C / C++</span>
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'embedded_c')">Embedded
+            C</span>
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'rtos')">RTOS</span>
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'esp32')">ESP32</span>
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'linux')">Linux</span>
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'comms')">UART/SPI/I2C</span>
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'pcb')">PCB Debug</span>
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'git')">Git</span>
+          <span class="skill-tag" role="button" tabindex="0" onclick="openTechCase(event, 'dsa')">Data Structures</span>
         </div>
       </div>
 
@@ -238,11 +221,12 @@
               <p><strong>Impact / What I learned:</strong> Calibrated PIR sensors to eliminate false triggers and safely
                 interfaced low-voltage microcontrollers with high-voltage AC loads.</p>
 
-              <button class="btn-case-study" onclick="openCaseStudy(event, 'ironing')">
-                View Case Study
-              </button>
-
-              <span class="project-link" style="display:inline-block; margin-top:10px;">IoT / Embedded</span>
+              <div class="compact-actions">
+                <button class="btn-case-study" onclick="openCaseStudy(event, 'ironing')">
+                  View Case Study
+                </button>
+                <span class="compact-link" style="opacity: 0.7; cursor: default;">IoT / Embedded</span>
+              </div>
             </div>
           </div>
 
@@ -268,23 +252,9 @@
               <p><strong>Engineering:</strong> Built a custom hash table with separate chaining (linked lists) to handle
                 collisions and dynamic content scaling.</p>
 
-              <button class="btn-case-study" onclick="openCaseStudy(event, 'inverted')">
-                View Case Study
-              </button>
-
-              <div style="margin-bottom: 1rem; margin-top: 1rem;">
-                <a href="#"
-                  onclick="openVideo(event, 'videos/Heap-Search.webm', 'pics/inverted-search-using-hashtable-poster.png')"
-                  class="project-link" style="margin-right: 10px;">Watch Demo &rarr;</a>
-                <a href="https://github.com/ramanamuniyan/Inverted-Search-using-hashtable" target="_blank"
-                  rel="noopener noreferrer" class="project-link" style="margin-right: 10px;">View Code &rarr;</a>
-                <a href="https://hub.docker.com/r/ramanamuniyan/inverted-search-using-hashtable" target="_blank"
-                  rel="noopener noreferrer" class="project-link">Docker Hub &rarr;</a>
-              </div>
-
+              <!-- Netlify Prod Fix: Removed inline onkeydown -->
               <div class="docker-container" role="button" tabindex="0" aria-label="Click to copy Docker command"
-                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/inverted-search-using-hashtable')"
-                onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/inverted-search-using-hashtable')">
                 <code class="docker-command">docker pull ramanamuniyan/inverted-search-using-hashtable</code>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -292,6 +262,19 @@
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
+              </div>
+
+              <div class="compact-actions">
+                <button class="btn-case-study" onclick="openCaseStudy(event, 'inverted')">
+                  View Case Study
+                </button>
+                <a href="#"
+                  onclick="openVideo(event, 'videos/Heap-Search.webm', 'pics/inverted-search-using-hashtable-poster.png')"
+                  class="compact-link">Watch Demo &rarr;</a>
+                <a href="https://github.com/ramanamuniyan/Inverted-Search-using-hashtable" target="_blank"
+                  rel="noopener noreferrer" class="compact-link">View Code &rarr;</a>
+                <a href="https://hub.docker.com/r/ramanamuniyan/inverted-search-using-hashtable" target="_blank"
+                  rel="noopener noreferrer" class="compact-link">Docker Hub &rarr;</a>
               </div>
             </div>
           </div>
@@ -318,23 +301,8 @@
               <p><strong>Impact / What I learned:</strong> Resolved complex memory leaks by using Valgrind to ensure all
                 dynamic nodes were properly freed after operations.</p>
 
-              <button class="btn-case-study" onclick="openCaseStudy(event, 'apc')">
-                View Case Study
-              </button>
-
-              <div style="margin-bottom: 1rem; margin-top: 1rem;">
-                <a href="#"
-                  onclick="openVideo(event, 'videos/apc.webm', 'pics/arbitrary-precision-calculator-poster.png')"
-                  class="project-link" style="margin-right: 10px;">Watch Demo &rarr;</a>
-                <a href="https://github.com/ramanamuniyan/Arbitrary-Precision-Calculator" target="_blank"
-                  rel="noopener noreferrer" class="project-link" style="margin-right: 10px;">View Code &rarr;</a>
-                <a href="https://hub.docker.com/r/ramanamuniyan/arbitrary-precision-calculator" target="_blank"
-                  rel="noopener noreferrer" class="project-link">Docker Hub &rarr;</a>
-              </div>
-
               <div class="docker-container" role="button" tabindex="0" aria-label="Click to copy Docker command"
-                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/arbitrary-precision-calculator')"
-                onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/arbitrary-precision-calculator')">
                 <code class="docker-command">docker pull ramanamuniyan/arbitrary-precision-calculator</code>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -342,6 +310,19 @@
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
+              </div>
+
+              <div class="compact-actions">
+                <button class="btn-case-study" onclick="openCaseStudy(event, 'apc')">
+                  View Case Study
+                </button>
+                <a href="#"
+                  onclick="openVideo(event, 'videos/apc.webm', 'pics/arbitrary-precision-calculator-poster.png')"
+                  class="compact-link">Watch Demo &rarr;</a>
+                <a href="https://github.com/ramanamuniyan/Arbitrary-Precision-Calculator" target="_blank"
+                  rel="noopener noreferrer" class="compact-link">View Code &rarr;</a>
+                <a href="https://hub.docker.com/r/ramanamuniyan/arbitrary-precision-calculator" target="_blank"
+                  rel="noopener noreferrer" class="compact-link">Docker Hub &rarr;</a>
               </div>
             </div>
           </div>
@@ -366,22 +347,8 @@
               <p><strong>Impact / What I learned:</strong> Overcame big-endian data challenges by implementing endian
                 conversion logic to correctly read binary headers.</p>
 
-              <button class="btn-case-study" onclick="openCaseStudy(event, 'mp3')">
-                View Case Study
-              </button>
-
-              <div style="margin-bottom: 1rem; margin-top: 1rem;">
-                <a href="#" onclick="openVideo(event, 'videos/mp3.webm', 'pics/mp3-tag-read-edit-poster.png')"
-                  class="project-link" style="margin-right: 10px;">Watch Demo &rarr;</a>
-                <a href="https://github.com/ramanamuniyan/mp3_tag_read_edit" target="_blank" rel="noopener noreferrer"
-                  class="project-link" style="margin-right: 10px;">View Code &rarr;</a>
-                <a href="https://hub.docker.com/r/ramanamuniyan/mp3-tag-read-edit" target="_blank"
-                  rel="noopener noreferrer" class="project-link">Docker Hub &rarr;</a>
-              </div>
-
               <div class="docker-container" role="button" tabindex="0" aria-label="Click to copy Docker command"
-                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/mp3-tag-read-edit')"
-                onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/mp3-tag-read-edit')">
                 <code class="docker-command">docker pull ramanamuniyan/mp3-tag-read-edit</code>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -389,6 +356,18 @@
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
+              </div>
+
+              <div class="compact-actions">
+                <button class="btn-case-study" onclick="openCaseStudy(event, 'mp3')">
+                  View Case Study
+                </button>
+                <a href="#" onclick="openVideo(event, 'videos/mp3.webm', 'pics/mp3-tag-read-edit-poster.png')"
+                  class="compact-link">Watch Demo &rarr;</a>
+                <a href="https://github.com/ramanamuniyan/mp3_tag_read_edit" target="_blank" rel="noopener noreferrer"
+                  class="compact-link">View Code &rarr;</a>
+                <a href="https://hub.docker.com/r/ramanamuniyan/mp3-tag-read-edit" target="_blank"
+                  rel="noopener noreferrer" class="compact-link">Docker Hub &rarr;</a>
               </div>
             </div>
           </div>
@@ -413,22 +392,8 @@
               <p><strong>Impact / What I learned:</strong> Decoded file headers manually and used bitwise masking to
                 ensure the modified image remained visually identical to the original.</p>
 
-              <button class="btn-case-study" onclick="openCaseStudy(event, 'stego')">
-                View Case Study
-              </button>
-
-              <div style="margin-bottom: 1rem; margin-top: 1rem;">
-                <a href="#" onclick="openVideo(event, 'videos/stegnograph.webm', 'pics/stegnograph-poster.png')"
-                  class="project-link" style="margin-right: 10px;">Watch Demo &rarr;</a>
-                <a href="https://github.com/ramanamuniyan/Stegnograph" target="_blank" rel="noopener noreferrer"
-                  class="project-link" style="margin-right: 10px;">View Code &rarr;</a>
-                <a href="https://hub.docker.com/r/ramanamuniyan/stegnograph" target="_blank" rel="noopener noreferrer"
-                  class="project-link">Docker Hub &rarr;</a>
-              </div>
-
               <div class="docker-container" role="button" tabindex="0" aria-label="Click to copy Docker command"
-                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/stegnograph')"
-                onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
+                onclick="copyDockerCommand(event, 'docker pull ramanamuniyan/stegnograph')">
                 <code class="docker-command">docker pull ramanamuniyan/stegnograph</code>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -437,23 +402,25 @@
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
               </div>
+
+              <div class="compact-actions">
+                <button class="btn-case-study" onclick="openCaseStudy(event, 'stego')">
+                  View Case Study
+                </button>
+                <a href="#" onclick="openVideo(event, 'videos/stegnograph.webm', 'pics/stegnograph-poster.png')"
+                  class="compact-link">Watch Demo &rarr;</a>
+                <a href="https://github.com/ramanamuniyan/Stegnograph" target="_blank" rel="noopener noreferrer"
+                  class="compact-link">View Code &rarr;</a>
+                <a href="https://hub.docker.com/r/ramanamuniyan/stegnograph" target="_blank" rel="noopener noreferrer"
+                  class="compact-link">Docker Hub &rarr;</a>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Case Study Modal -->
         <!-- Case Study Modal (New Standard) -->
-        <div id="case-modal" class="case-modal" role="dialog" aria-modal="true" aria-labelledby="case-modal-title"
-          style="display:none">
-          <div class="case-modal__overlay" id="case-modal-overlay"></div>
-          <div class="case-modal__dialog" role="document" tabindex="-1">
-            <button class="case-modal__close" id="case-modal-close" aria-label="Close case study">&times;</button>
-            <div class="case-study-header">
-              <h2 id="case-modal-title"></h2>
-            </div>
-            <div id="case-modal-body" class="case-modal__body"></div>
-          </div>
-        </div>
+
 
       </div>
 
@@ -461,10 +428,12 @@
       <div class="card area-awards">
         <h3>Spot Awards</h3>
         <div class="award-list">
+          <!-- Netlify Prod Fix: Removed inline onkeydown, handled centrally -->
           <div class="award-item" role="button" tabindex="0" aria-label="View Spot Award Certificate"
-            onclick="openImage('pics/spot_award.png')"
-            onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
-            <img src="pics/spot_award.png" alt="Spot Award - Efficient Solution" class="award-icon" loading="lazy" />
+            onclick="openImage('pics/spot_award.png')">
+            <!-- Netlify Prod Fix: Added explicit dimensions -->
+            <img src="pics/spot_award.png" width="761" height="543" alt="Spot Award - Efficient Solution"
+              class="award-icon" loading="lazy" />
             <div class="award-details">
               <h4>Emertxe Spot Award</h4>
               <p>Received the Student Spot Award from Emertxe for presenting a smart and efficient solution to an
@@ -472,9 +441,9 @@
             </div>
           </div>
           <div class="award-item" role="button" tabindex="0" aria-label="View Spot Award Certificate"
-            onclick="openImage('pics/spot_award_2.png')"
-            onkeydown="if(event.key==='Enter'||event.key===' ') { this.click(); }">
-            <img src="pics/spot_award_2.png" alt="Spot Award - Enthusiasm" class="award-icon" loading="lazy" />
+            onclick="openImage('pics/spot_award_2.png')">
+            <img src="pics/spot_award_2.png" width="1024" height="723" alt="Spot Award - Enthusiasm" class="award-icon"
+              loading="lazy" />
             <div class="award-details">
               <h4>Emertxe Spot Award</h4>
               <p>Recognized for showing a lot of enthusiasm and inclination towards learning Data Structures.</p>
@@ -507,6 +476,19 @@
     </div>
   </div>
 
+  <!-- Tech Case Study Modal (Smaller, Deep Dive) -->
+  <div id="tech-case-modal" class="case-modal" role="dialog" aria-modal="true" aria-labelledby="tech-case-title"
+    style="display:none">
+    <div class="case-modal__overlay" id="tech-case-overlay"></div>
+    <div class="case-modal__dialog tech-case-dialog" role="document" tabindex="-1">
+      <button class="case-modal__close" id="tech-case-close" aria-label="Close tech details">&times;</button>
+      <div class="case-study-header">
+        <h2 id="tech-case-title"></h2>
+      </div>
+      <div id="tech-case-body" class="case-modal__body"></div>
+    </div>
+  </div>
+
   <!-- Video Modal -->
   <div id="video-modal" class="video-modal" onclick="closeVideo()">
     <div class="modal-content" onclick="event.stopPropagation()">
@@ -517,6 +499,19 @@
           Your browser does not support the video tag.
         </video>
       </div>
+    </div>
+  </div>
+
+  <!-- Case Study Modal (Moved to Body) -->
+  <div id="case-modal" class="case-modal" role="dialog" aria-modal="true" aria-labelledby="case-modal-title"
+    style="display:none">
+    <div class="case-modal__overlay" id="case-modal-overlay"></div>
+    <div class="case-modal__dialog" role="document" tabindex="-1">
+      <button class="case-modal__close" id="case-modal-close" aria-label="Close case study">&times;</button>
+      <div class="case-study-header">
+        <h2 id="case-modal-title"></h2>
+      </div>
+      <div id="case-modal-body" class="case-modal__body"></div>
     </div>
   </div>
 
